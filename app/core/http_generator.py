@@ -64,7 +64,7 @@ class HttpGenerator(object):
             elif self.http_way.lower() == 'delete':
                 response = self.__delete_generator()
             log_title = f'{self.http_way.lower()}接口请求成功'
-            log = f'{json.dumps(response)}'
+            log = f'{json.dumps(response, ensure_ascii=False)}'
             Log().info(f'<<{log_title}>>{log}')
             return response
         except Exception as e:
