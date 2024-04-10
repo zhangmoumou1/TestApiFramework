@@ -149,7 +149,8 @@ https://www.jianshu.com/p/5d1ce588e18c
       `is_deleted` int DEFAULT '0'
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章接口用例';
 
-### 3、录入登录接口用例数据
+### 3、录入用例数据
+#### 1）录入登录接口数据
 调用业务接口要维持登录状态，如果是从登录接口获取token，需要在用例mysql的`base_login`表配置登录接口，
 并在`postpose_control`字段写入存储token的语法。后续只需将存储的对应key名，填入其他接口的`headers`字段内即可。
 以下为示例sql：
@@ -158,7 +159,7 @@ https://www.jianshu.com/p/5d1ce588e18c
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
     VALUES('zmm-1.0', '张某某', 'BlogProject', '登录', '账密登录成功', 'POST', NULL, '/api/login', '{"username":"test","password":"123456"}', NULL, '包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&', NULL, 'BlogProject_token=jsonpath_rela.data', NULL, '开发者', '2023-03-10', NULL, 0);
 
-### 4、录入接口用例数据
+#### 2）录入接口用例数据
 注意headers字段需要添加对应项目token的变量key名，保证登录。以下为示例sql：
     
     INSERT INTO article
