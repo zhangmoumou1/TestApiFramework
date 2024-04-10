@@ -155,9 +155,9 @@ class NormalGenarator(object):
                 # zyc-1.1#zyc-1.3处理成zyc-1.1,zyc-1.2,zyc-1.3
                 case_ids = MysqlConstructor.deal_with_caseid(param_end)
                 for case_id in case_ids.split(','):
-                    Genetator.global_generator( table_name=table_name, case_id=case_id)
+                    Genetator.global_generator(table_name=table_name, case_id=case_id, logFlag=True)
             else:
-                Genetator.global_generator(table_name=table_name, case_id=param_end)
+                Genetator.global_generator(table_name=table_name, case_id=param_end, logFlag=True)
         except Exception as e:
             Log().error(f'<<调用用例接口>>[{values}]写法有误，请检查格式及语句是否正确：{e}')
         finally:

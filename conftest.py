@@ -21,7 +21,7 @@ def login_first() -> None:
         from app.core.generator import Genetator
         case_ids = MysqlConstructor.parameterization_data('base_login', 'all')
         for case_id in case_ids:
-            Genetator.global_generator(table_name='base_login', case_id=case_id[0])
+            Genetator.global_generator(table_name='base_login', case_id=case_id[0], logFlag=True)
         Log().critical(f'---------------------获取登录信息结束----------------------')
 
 def pytest_terminal_summary(terminalreporter):

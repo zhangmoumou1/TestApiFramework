@@ -17,7 +17,7 @@ class Genetator(object):
     # type = 'Wx'
     # way = 'token'
     @staticmethod
-    def global_generator(table_name, case_id):
+    def global_generator(table_name, case_id, logFlag=False):
         """
         主调度入口：获取用例数据->生成请求头->生成接口url->生成传参->处理前置->发起请求->处理后置->断言
         """
@@ -33,6 +33,11 @@ class Genetator(object):
             response = HttpGenerator(case_data['api_way'], url, headers, data).__call__()
             Genetator.post_genetator(case_data, response)
             Genetator.assert_genetator(response, case_data)
+            # 优化控制台日志：执行登录用例和引用历史用例时，不执行下列日志
+            if logFlag is True:
+                pass
+            else:
+                Log().info('\n\n')
 
     @staticmethod
     def case_reader(table_name, case_id):
