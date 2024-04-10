@@ -246,26 +246,27 @@ https://www.jianshu.com/p/5d1ce588e18c
 
 
 ### 5、编写用例代码
-在testcase目录下，创建编写用例代码，修改类和方法名避免冲突，再填写用例数据所在的表和用例id（调用多条用例，可写为zmm-1.1#zmm-1.3），
-如下创建./testcase/caseBlog/case_blog.py
+在testcase目录下，创建编写用例代码，修改类和方法名避免冲突，再填写用例数据所在的表和用例id（调用多条用例，可写为zmm-1.0#zmm-1.3），
+如下创建./testcase/caseBlog/case_blog.py。
+
+`后续用例只需要复制此代码，修改下类/方法名/parameterization_data传参即可`
     
     from app.core.methods import *
-    from app.core.generator import Genetator
     
     @allure.epic("测试用例")
     @allure.feature("博客项目")
     @pytest.mark.skipif(env in ['RELEASE'], reason='线上环境不执行')
     class TestExample():
-    
+
         @login_decorator
         def setup_class(self):
             Log().debug('----------------------【测试用例开始执行】----------------------')
     
         @allure.story("文章管理")
         @allure.title('{title}')
-        @pytest.mark.parametrize('case_id, title', MysqlConstructor.parameterization_data('article', 'zmm-1.0#zmm-1.4'))
-        def test_example(self, case_id, title):
-            Genetator.global_generator(table_name='article', case_id=case_id)
+        @pytest.mark.parametrize('case_id, title, table_name', MysqlConstructor.parameterization_data('article', 'zmm-1.0#zmm-1.4'))
+        def test_example(self, case_id, title, table_name):
+            Genetator.global_generator(table_name=table_name, case_id=case_id)
     
         def teardown_class(self):
             Log().debug('-----------------------【测试用例执行完毕】-----------------------\n')

@@ -42,6 +42,7 @@ from app.core.parser import ParserJson
 from app.core.normal_generator import NormalGenarator
 from deepdiff import DeepDiff, grep, DeepSearch
 from app.utils.assert_constructor import AssertConstructor
+from app.core.generator import Genetator
 
 SYSTEM_VERSION = platform.platform()
 
@@ -90,5 +91,6 @@ __all__ = [
     'DeepSearch',
     'ding_token',
     'login_decorator',
-    'SpecificGenerator'
+    'SpecificGenerator',
+    'Genetator'
 ]

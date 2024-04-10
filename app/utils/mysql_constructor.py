@@ -270,7 +270,7 @@ class MysqlConstructor(object):
                     key_new_1 = ()
                     for b in value_results:
                         if '"{}"'.format(b[0]) == i:
-                            key_new_1 += (b[0], b[1])
+                            key_new_1 += (b[0], b[1], table_name)
                     values.append(key_new_1)
                 values.pop()
             _conn.close()
