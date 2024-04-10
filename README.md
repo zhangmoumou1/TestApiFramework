@@ -1,13 +1,13 @@
 # 接口自动化测试框架
 
-# 技术栈
+## 技术栈
  🎨 Python3.8（及以上稳定版本）<br>
  🏐 Pytest（用例编排执行）<br>
  ☕ Redis（存储变量）<br>
  🚚 Mysql（存储用例）<br>
  ⚽ Allure（报告插件）
 
-# 框架优势
+## 框架优势
 
 <table>
 <tr>
@@ -24,7 +24,7 @@
 </tr>
 </table>
 
-# 注意 
+## 注意 
 > info.yaml、mysql.yaml、redis.yaml、用例表.project_name字段的项目命名必须保持一致对应
 ---
 # 一、目录结构
