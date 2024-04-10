@@ -183,7 +183,7 @@ https://www.jianshu.com/p/5d1ce588e18c
 在testcase目录下，创建编写用例代码，修改类和方法名避免冲突，再填写用例数据所在的表和用例id（调用多条用例，可写为zmm-1.0#zmm-1.3），
 如下创建./testcase/caseBlog/case_blog.py。
 
-`后续用例只需要复制此代码，修改下类/方法名/parameterization_data传参即可`
+🎉 `后续用例只需要复制此代码，修改下类/方法名/parameterization_data传参即可`
     
     from app.core.methods import *
     
