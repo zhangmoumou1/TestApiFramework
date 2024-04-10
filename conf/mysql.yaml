@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @@Author: 张某某
+# @@Create Date: 2023/02/16 10:28
+# @@Description: 用例数据库和业务mysql数据库的连接信息
+# @@Copyright © zhangmoumou, Inc. All rights reserved.
+
+CaseDb:                           # 用例库名，禁止修改
+  TEST:                           # 测试环境
+    - 127.0.0.1
+    - 3306
+    - root
+    - 123456
+  ONLINE:                         # 线上环境
+    - 127.0.0.1
+    - 3306
+    - root
+    - 123456
+
+BlogProject:                      # 项目名
+  TEST:                           # 测试环境
+    business_db_1:                # 业务库1，禁止修改此名称
+      - 127.0.0.1
+      - 3306
+      - root
+      - 123456
+    business_db_2:                # 业务库2，禁止修改此名称
+      - 127.0.0.1
+      - 3306
+      - root
+      - 123456
+
+  ONLINE:                         # 线上环境
+    business_db_1:
+      - 127.0.0.1
+      - 3306
+      - root
+      - 123456
+    business_db_2:
+      - 127.0.0.1
+      - 3306
+      - root
+      - 123456

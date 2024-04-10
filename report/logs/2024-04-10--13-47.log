@@ -1,0 +1,80 @@
+[2024-04-10  13:47:12.626] -> [CRITICAL] : 
+
+[2024-04-10  13:47:12.627] -> [CRITICAL] : -------------------开始获取登录信息[base_login表]-------------------
+[2024-04-10  13:47:12.685] -> [INFO] : <<获取用例数据成功>>获取base_login.id=zmm-1.0的用例数据成功，{'case_id': 'zmm-1.0', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '登录', 'case_name': '账密登录成功', 'api_way': 'POST', 'headers': None, 'case_url': '/api/login', 'case_param': '{"username":"test","password":"123456"}', 'assert_settings': None, 'assert': '包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&', 'prepose_control': None, 'postpose_control': 'BlogProject_token=jsonpath_rela.data', 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:12.686] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST'}
+[2024-04-10  13:47:12.688] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/login
+[2024-04-10  13:47:12.688] -> [INFO] : <<获取传参成功>>获取传参成功，{"username":"test","password":"123456"}
+[2024-04-10  13:47:12.695] -> [INFO] : <<post接口请求成功>>{"code": "200", "data": "9779dd9e-aa3d-435f-a431-e699a67fe616", "message": "\u767b\u5f55\u6210\u529f\uff01", "success": true}
+[2024-04-10  13:47:12.696] -> [INFO] : <<开始后置处理>>
+[2024-04-10  13:47:12.711] -> [INFO] : <<后置处理结束>>
+[2024-04-10  13:47:12.713] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&
+实际值：{"code": "200", "data": "9779dd9e-aa3d-435f-a431-e699a67fe616", "message": "登录成功！", "success": true}
+[2024-04-10  13:47:12.715] -> [CRITICAL] : -----------------------获取登录信息结束-----------------------
+
+[2024-04-10  13:47:12.757] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.0的用例数据成功，{'case_id': 'zmm-1.0', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '文章列表', 'api_way': 'GET', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/articleList', 'case_param': None, 'assert_settings': None, 'assert': '包含&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', 'prepose_control': None, 'postpose_control': None, 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:12.775] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:12.775] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:12.778] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/articleList
+[2024-04-10  13:47:12.779] -> [INFO] : <<获取传参成功>>获取传参成功，None
+[2024-04-10  13:47:12.785] -> [INFO] : <<get接口请求成功>>{"code": "200", "data": [{"content": "\u957f\u98ce\u7834\u6d6a\u4f1a\u6709\u65f6\uff0c\u76f4\u6302\u4e91\u5e06\u6d4e\u6ca7\u6d77\u3002", "id": 1, "title": "\u884c\u8def\u96be"}, {"content": "\u6c89\u821f\u4fa7\u7554\u5343\u5e06\u8fc7\uff0c\u75c5\u6811\u524d\u5934\u4e07\u6728\u6625\u3002", "id": 2, "title": "\u916c\u4e50\u5929\u626c\u5dde\u521d\u9022\u5e2d\u4e0a\u89c1\u8d60"}], "success": true}
+[2024-04-10  13:47:12.787] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&
+实际值：{"code": "200", "data": [{"content": "长风破浪会有时，直挂云帆济沧海。", "id": 1, "title": "行路难"}, {"content": "沉舟侧畔千帆过，病树前头万木春。", "id": 2, "title": "酬乐天扬州初逢席上见赠"}], "success": true}
+[2024-04-10  13:47:12.819] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.1的用例数据成功，{'case_id': 'zmm-1.1', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '新增文章', 'api_way': 'POST', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/addArticle', 'case_param': '{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', 'assert_settings': None, 'assert': '包含&&{"code":"200","message":"添加新文章成功！","success":true}&&', 'prepose_control': 'sleep2', 'postpose_control': "mysql_1.test_cases.zyc_case_name=select case_name from base_login where case_id='zmm-1.0'", 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:12.820] -> [INFO] : <<开始前置处理>>
+[2024-04-10  13:47:14.834] -> [INFO] : 强制等待2秒
+[2024-04-10  13:47:14.835] -> [INFO] : <<前置处理结束>>
+[2024-04-10  13:47:14.848] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:14.849] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:14.852] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/addArticle
+[2024-04-10  13:47:14.852] -> [INFO] : <<获取传参成功>>获取传参成功，{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}
+[2024-04-10  13:47:14.858] -> [INFO] : <<post接口请求成功>>{"code": "200", "message": "\u6dfb\u52a0\u65b0\u6587\u7ae0\u6210\u529f\uff01", "success": true}
+[2024-04-10  13:47:14.859] -> [INFO] : <<开始后置处理>>
+[2024-04-10  13:47:14.881] -> [INFO] : <<mysql业务库>>执行business_db_1.test_cases业务库的查询sql[select case_name from base_login where case_id='zmm-1.0']成功，结果为：
+{'case_name': '账密登录成功'}
+[2024-04-10  13:47:14.898] -> [INFO] : <<后置处理结束>>
+[2024-04-10  13:47:14.899] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","message":"添加新文章成功！","success":true}&&
+实际值：{"code": "200", "message": "添加新文章成功！", "success": true}
+[2024-04-10  13:47:14.932] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.2的用例数据成功，{'case_id': 'zmm-1.2', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '查看新增的文章', 'api_way': 'GET', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/article/3', 'case_param': None, 'assert_settings': None, 'assert': '包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&', 'prepose_control': None, 'postpose_control': None, 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:14.950] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:14.951] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:14.953] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/article/3
+[2024-04-10  13:47:14.953] -> [INFO] : <<获取传参成功>>获取传参成功，None
+[2024-04-10  13:47:14.975] -> [INFO] : <<get接口请求成功>>{"code": "200", "data": {"content": "\u6d1b\u9633\u4eb2\u53cb\u5982\u76f8\u95ee\uff0c\u4e00\u7247\u51b0\u5fc3\u5728\u7389\u58f6\u3002", "id": 3, "title": "\u8299\u84c9\u697c\u9001\u8f9b\u6e10"}, "success": true}
+[2024-04-10  13:47:14.976] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&
+实际值：{"code": "200", "data": {"content": "洛阳亲友如相问，一片冰心在玉壶。", "id": 3, "title": "芙蓉楼送辛渐"}, "success": true}
+[2024-04-10  13:47:15.014] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.3的用例数据成功，{'case_id': 'zmm-1.3', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '编辑新增的文章', 'api_way': 'PUT', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/updateArticle/3', 'case_param': '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', 'assert_settings': None, 'assert': '包含&&{"code":"200","message":"更新文章信息成功！","success":true}&&', 'prepose_control': None, 'postpose_control': None, 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:15.028] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:15.029] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:15.031] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/updateArticle/3
+[2024-04-10  13:47:15.032] -> [INFO] : <<获取传参成功>>获取传参成功，{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}
+[2024-04-10  13:47:15.038] -> [INFO] : <<put接口请求成功>>{"code": "200", "message": "\u66f4\u65b0\u6587\u7ae0\u4fe1\u606f\u6210\u529f\uff01", "success": true}
+[2024-04-10  13:47:15.039] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","message":"更新文章信息成功！","success":true}&&
+实际值：{"code": "200", "message": "更新文章信息成功！", "success": true}
+[2024-04-10  13:47:15.070] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.4的用例数据成功，{'case_id': 'zmm-1.4', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '删除新增的文章', 'api_way': 'DELETE', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/deleteArticle/3', 'case_param': None, 'assert_settings': None, 'assert': '包含&&{"code":"200","message":"删除文章成功！","success":true}&&', 'prepose_control': None, 'postpose_control': 'apiCase.article=zmm-1.0', 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:15.087] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:15.088] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:15.090] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/deleteArticle/3
+[2024-04-10  13:47:15.091] -> [INFO] : <<获取传参成功>>获取传参成功，None
+[2024-04-10  13:47:15.097] -> [INFO] : <<delete接口请求成功>>{"code": "200", "message": "\u5220\u9664\u6587\u7ae0\u6210\u529f\uff01", "success": true}
+[2024-04-10  13:47:15.098] -> [INFO] : <<开始后置处理>>
+[2024-04-10  13:47:15.099] -> [INFO] : -------------------开始调用接口用例[apiCase.article=zmm-1.0]-------------------
+[2024-04-10  13:47:15.124] -> [INFO] : <<获取用例数据成功>>获取article.id=zmm-1.0的用例数据成功，{'case_id': 'zmm-1.0', 'creator': '张某某', 'project_name': 'BlogProject', 'case_module': '文章管理', 'case_name': '文章列表', 'api_way': 'GET', 'headers': 'token=##BlogProject_token##', 'case_url': '/api/articleList', 'case_param': None, 'assert_settings': None, 'assert': '包含&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', 'prepose_control': None, 'postpose_control': None, 'relevance_page': None, 'developer': '开发者', 'created_time': datetime.date(2023, 3, 10), 'text': None, 'is_deleted': 0}
+[2024-04-10  13:47:15.148] -> [INFO] : <<提取全局变量>>TEST环境，全局变量【BlogProject_token】提取成功：9779dd9e-aa3d-435f-a431-e699a67fe616
+[2024-04-10  13:47:15.149] -> [INFO] : <<请求头设置成功>>{'content-type': 'application/json; charset=UTF-8', 'X-Ca-Stage': 'TEST', 'token': '9779dd9e-aa3d-435f-a431-e699a67fe616'}
+[2024-04-10  13:47:15.152] -> [INFO] : <<获取接口地址成功>>http://127.0.0.1:5000/api/articleList
+[2024-04-10  13:47:15.153] -> [INFO] : <<获取传参成功>>获取传参成功，None
+[2024-04-10  13:47:15.159] -> [INFO] : <<get接口请求成功>>{"code": "200", "data": [{"content": "\u957f\u98ce\u7834\u6d6a\u4f1a\u6709\u65f6\uff0c\u76f4\u6302\u4e91\u5e06\u6d4e\u6ca7\u6d77\u3002", "id": 1, "title": "\u884c\u8def\u96be"}, {"content": "\u6c89\u821f\u4fa7\u7554\u5343\u5e06\u8fc7\uff0c\u75c5\u6811\u524d\u5934\u4e07\u6728\u6625\u3002", "id": 2, "title": "\u916c\u4e50\u5929\u626c\u5dde\u521d\u9022\u5e2d\u4e0a\u89c1\u8d60"}], "success": true}
+[2024-04-10  13:47:15.161] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&
+实际值：{"code": "200", "data": [{"content": "长风破浪会有时，直挂云帆济沧海。", "id": 1, "title": "行路难"}, {"content": "沉舟侧畔千帆过，病树前头万木春。", "id": 2, "title": "酬乐天扬州初逢席上见赠"}], "success": true}
+[2024-04-10  13:47:15.163] -> [INFO] : ------------------------调用接口用例结束------------------------
+[2024-04-10  13:47:15.165] -> [INFO] : <<后置处理结束>>
+[2024-04-10  13:47:15.166] -> [INFO] : <<断言成功>>
+期望值：包含&&{"code":"200","message":"删除文章成功！","success":true}&&
+实际值：{"code": "200", "message": "删除文章成功！", "success": true}
