@@ -17,7 +17,7 @@
 | ✅ Mysql+Redis组合搭配，方便管理用例及后续数据统计 |
 
 # 注意 
-> 执行pytest命令时，请检查用例目录文件命名是否满足pytest.ini的配置
+> info.yaml、mysql.yaml、redis.yaml、用例表.project_name字段的项目命名必须保持一致对应
 ---
 
 # 一、目录结构
