@@ -48,6 +48,7 @@
 # 二、框架流程图
 ![img.png](pic/process.png)
 # 三、环境配置
+安装好mysql和redis后，请启动对应服务保证能连接成功
 ## 1、安装mysql
 以下为windows系统安装，其他系统请自行查找安装教程
 https://www.jianshu.com/p/5d1ce588e18c
