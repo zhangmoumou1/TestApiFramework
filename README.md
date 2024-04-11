@@ -223,10 +223,11 @@ https://www.jianshu.com/p/5d1ce588e18c
 ## windows系统运行
 ### 1、运行方式1
 使用pytest命令，在项目根目录命令行输入`pytest .\testcase\caseBlog\case_blog.py`执行
-### 2、运行方式3
+### 2、运行方式2
+
 根目录下执行`.\run.bat 环境`，如`.\run.bat TEST`
 ![img.png](pic/run1.png)
-### 3、运行方式2
+### 3、运行方式3
 或者pycharm选择用例代码文件（如`case_blog.py`）运行
 ![img.png](pic/run2.png)
 ## Linux系统运行
