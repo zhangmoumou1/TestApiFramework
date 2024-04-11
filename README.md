@@ -311,7 +311,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
     具体写法前面已介绍，不再具体概述
 
 ## 4、prepose_control字段
-接口请求前的前置操作，可以执行操作业务数据库、操作业务redis、调用其他用例、存储自定义变量数据、强制等待特殊变量值、，示例如下
+接口请求前的前置操作，可以执行操作业务数据库、操作业务redis、调用其他用例、存储自定义变量数据、强制等待特殊变量值，示例如下
 
 `apiCase.base_login=zmm-1.1；
 zmm_id=jsonpath_rela.id；
