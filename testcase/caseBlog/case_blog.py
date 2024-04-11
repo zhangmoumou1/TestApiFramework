@@ -17,7 +17,7 @@ class TestExample():
 
     @login_decorator
     def setup_class(self):
-        Log().debug('----------------------【测试用例开始执行】----------------------')
+        Log().info('----------------------【测试用例开始执行】----------------------')
 
     @allure.story("文章管理")
     @allure.title('{title}')
@@ -26,4 +26,4 @@ class TestExample():
         Genetator.global_generator(table_name=table_name, case_id=case_id)
 
     def teardown_class(self):
-        Log().debug('-----------------------【测试用例执行完毕】-----------------------\n')
+        Log().info('-----------------------【测试用例执行完毕】-----------------------\n')

@@ -19,11 +19,11 @@ class Log(object):
     def __printconsole(self, level, message):
         # 创建一个logger
         log_colors_config = {
-            'DEBUG': 'bold_cyan',  # cyan white
+            'DEBUG': 'cyan',  # cyan white
             'INFO': 'green',
             'WARNING': 'bold_yellow',
             'ERROR': 'bold_red',
-            'CRITICAL': 'purple',
+            'CRITICAL': 'bold_purple',
             'EXCEPTION': 'bold_red',
         }
 
