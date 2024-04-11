@@ -52,7 +52,7 @@
        ├─ requirements.txt  # 记录所有依赖包及版本号
        ├─ README.md
        ├─ run.bat           # windows系统执行用例脚本
-       └─ README.md         # linux系统执行用例脚本
+       └─ run.sh         # linux系统执行用例脚本
 # 二、框架流程图
 ![img.png](pic/process2.png)
 # 三、环境配置
