@@ -241,7 +241,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 ### 4）运行本地生成的报告
 报告文件上层目录下，输入allure serve 报告文件名称，执行
 ![img.png](pic/cmd.png)
-### 5)查看报告
+### 5）查看报告
 打开浏览器查看报告
 ![img.png](pic/allure.png)
 
@@ -271,7 +271,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 双`##`内为变量将从redis取出替换，示例如下
 
 `/transbiz_2c/user/getFsUserIdByUserId.run?userId=##zmm_userId##`  
-### 1)从用例redis获取变量值
+### 1）从用例redis获取变量值
     具体写法前面已介绍，不再具体概述
 
 ### 2）特殊变量值
@@ -311,7 +311,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
     具体写法前面已介绍，不再具体概述
 
 ## 4、prepose_control字段
-接口请求前的前置操作，可以执行操作业务数据库、操作业务redis、调用其他用例、存储自定义变量数据、强制等待特殊变量值，示例如下
+接口请求前的前置操作，可以执行操作业务数据库、操作业务redis、调用存量用例、存储自定义变量数据、强制等待特殊变量值，示例如下
 
 `apiCase.base_login=zmm-1.1；
 zmm_id=jsonpath_rela.id；
@@ -319,7 +319,7 @@ zmm_id=jsonpath_abs.data.0.id；
 mysql_1.db_name.zmm_id=select id from user_basic where code = 'xxx'；
 redis.0.zmm_id=hash.select.name.key；
 custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`  
-### 1）调用用例接口
+### 1）调用存量用例
     写法：apiCase.表名=用例id（调用单条用例）
     示例：apiCase.base_login=zmm-1.1
     调用base_login表内，case_id为zmm-1.1的用例
@@ -417,7 +417,7 @@ redis有多种数据类型，语法会相对较多。仅查询操作会存储变
     响应实际值完全包含$$内的期望值时，断言成功；有不包含的地方，则断言失败
 
 ## 6、postpose_control字段
-接口请求后的前置操作，可以执行存储接口响应值、调用其他用例、操作业务mysql、操作业务redis、调用其他用例、存储自定义变量数据、强制等待、特殊变量值，示例如下
+接口请求后的前置操作，可以执行存储接口响应值、调用其他用例、操作业务mysql、操作业务redis、调用存量用例、存储自定义变量数据、强制等待、特殊变量值，示例如下
 
 `apiCase.base_login=zmm-1.1；
 zmm_id=jsonpath_rela.id；
@@ -437,7 +437,7 @@ custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
     写法：redis的key命名=jsonpath_abs.响应中的字段名
     示例：zmm_id=jsonpath_abs.data.0.id
     jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字段值，命名zmm_id为key，存储至redis中
-### 2）调用用例接口
+### 2）调用存量接口
     
     具体写法前面已介绍，不再具体概述
 ### 3）操作业务mysql
