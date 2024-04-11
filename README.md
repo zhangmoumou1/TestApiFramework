@@ -251,34 +251,32 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 # 语法格式及详细写法
 > ## mysql用例表字段有各自可支持的写法，提升用例的灵活程度
 ## 1、headers字段
-会将以下数据以键值对的形式加入到请求头中，多个数据间用中文分号`；`隔开，示例如下
+多个数据间用中文分号`；`隔开，`##`内为变量将从redis取出替换，示例如下
 
 `aa=11；token=##zmm_id##`  
-### 1)从redis获取变量值
-    当值为字符串时，如key=zmm_id  value=zhang00
-    写法：##zmm_id##
+### 1）从用例redis获取变量值
 
-    当值为字典时，如key=zmm_id  value={'aa': 'zhang00'}
-    写法：##zmm_id.aa##
+| redis中value数据类型 | key  | value |
+|-----------------|------|-------|
+| 字符串             | zmm_id | zhang00  |
+| 字典              | zmm_id | {'aa': 'zhang00'}  |
+| 数组              | zmm_id | [{'aa': 'zhang00'}, {'bb': 'zhang11'}] |
+    当value值数据类型为字符串时，写法：##zmm_id##
 
-    当值为数组时，，如key=zmm_id  value=[{'aa': 'zhang00'}, {'bb': 'zhang11'}]
-    写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
+    当value值数据类型为字典时，写法：##zmm_id.aa##
+
+    当value值数据类型为数组时，写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
 
 ## 2、case_url字段
-会获取`##`内的数据并做替换，示例如下
+双`##`内为变量将从redis取出替换，示例如下
+
 `/transbiz_2c/user/getFsUserIdByUserId.run?userId=##zmm_userId##`  
-### 1)从redis获取变量值
-    当值为字符串时，如key=zmm_id  value=zhang00
-    写法：##zmm_id##
-
-    当值为字典时，如key=zmm_id  value={'aa': 'zhang00'}
-    写法：##zmm_id.aa##
-
-    当值为数组时，，如key=zmm_id  value=[{'aa': 'zhang00'}, {'bb': 'zhang11'}]
-    写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
+### 1)从用例redis获取变量值
+    具体写法前面已介绍，不再具体概述
 
 ### 2）特殊变量值
-    
+可插入任意位置
+
     时间格式变量：
         当接口传参需要依赖当前时间时，可以直接使用以下写法
         {{秒截止+2m}} ---秒截止表示精确到秒，2m表示当前时间加2分钟，如2021-04-12 15:36:44
@@ -306,18 +304,11 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
         当需要传指定数字区间的随机数，可以使用以下写法  {{number12-88}}
 
 ## 3、case_param字段
-会获取`##`内的数据并做替换，示例如下
+双`##`内为变量将从redis取出替换，示例如下
 
 `{"userId": ##zmm_userId##,"agreementSource": 20}`  
-### 1)从redis获取变量值
-    当值为字符串时，如key=zmm_id  value=zhang00
-    写法：##zmm_id##
-
-    当值为字典时，如key=zmm_id  value={'aa': 'zhang00'}
-    写法：##zmm_id.aa##
-
-    当值为数组时，，如key=zmm_id  value=[{'aa': 'zhang00'}, {'bb': 'zhang11'}]
-    写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
+### 1）从用例redis获取变量值
+    具体写法前面已介绍，不再具体概述
 
 ## 4、prepose_control字段
 接口请求前的前置操作，可能会存在操作业务数据库、操作业务redis、调用其他用例、强制等待，示例如下
@@ -405,36 +396,11 @@ redis有多种数据类型，语法会相对较多。仅查询操作会存储变
     向redis存储key为zmm_token，value为da173228-29b3-40c0-b9b0-04b364756c91的数据
 
 ### 6）特殊变量值
-可插入任意位置
     
-    时间格式变量：
-        当接口传参需要依赖当前时间时，可以直接使用以下写法
-        {{秒截止+2m}} ---秒截止表示精确到秒，2m表示当前时间加2分钟，如2021-04-12 15:36:44
-        {{秒截止-2m}} ---秒截止表示精确到秒，2m表示当前时间减2分钟
-        {{秒截止+2h}} ---秒截止表示精确到秒，2h表示当前时间加2小时
-        {{秒截止+2d}} ---秒截止表示精确到秒，2d表示当前时间加2天
-        {{秒截止+2M}} ---秒截止表示精确到秒，2M表示当前时间加2个月
-        {{秒截止+2Y}} ---秒截止表示精确到秒，2Y表示当前时间加2年
-        {{分截止+2m}} ---秒截止表示精确到分，2m表示当前时间加2分钟，如2021-04-12 15:36
-        ........
-        {{日截止+2d}} ---秒截止表示精确到天，2d表示当前时间加2天，如2021-04-12
-        ........
-        {{月截止-2M}} ---秒截止表示精确到月，2M表示当前时间减2个月，如2021-04
-        ........
-        {{年截止-2Y}} ---秒截止表示精确到年，2Y表示当前时间减2年，如2019
-        ........
-
-    随机手机号：
-        当传参中需要随机手机号的，可以使用以下写法   {{mobile}}，如想插入redis全局变量可写成{{zmm_xxx.mobile}}
-    
-    指定长度随机数：
-        当需要传5位随机数，可以使用以下写法 {{number5}}，如想插入redis全局变量可写成{{zmm_xxx.number5}}
-    
-    指定范围随机数：
-        当需要传指定数字区间的随机数，可以使用以下写法  {{number12-88}}
-
+    具体写法前面已介绍，不再具体概述
 ## 5、assert字段
-多重断言，使用中文`；`隔开
+多重断言，使用中文`；`隔开，示例如下
+
 `包含&&{'cardNo':'202305271262994896'}&&；相等(排序生效;类型生效)&&{'id': 11}&&`  
 ### 1）相等校验
     写法：相等&&{'cardNo':'202305271262994896'}&&（不校验字段顺序和字段字母大小写）
@@ -458,17 +424,8 @@ zmm_id=jsonpath_rela.id；
 zmm_id=jsonpath_abs.data.0.id；
 mysql_1.db_name.zmm_id=select id from user_basic where code = 'xxx'；
 redis.0.zmm_id=hash.select.name.key；
-custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；` 
-### 1）调用用例接口
-    写法：apiCase.表名=用例id（调用单条用例）
-    示例：apiCase.base_login=zmm-1.1
-    调用base_login表内，case_id为zmm-1.1的用例
-    
-    写法：apiCase.表名=用例id#用例id（调用多条用例）
-    示例：apiCase.base_login=zmm-1.1#zmm-1.3
-    调用base_login表内，case_id为zmm-1.1、zmm-1.2、zmm-1.3的用例
-
-### 2）存储接口响应值
+custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
+### 1）存储接口响应值
     写法：redis的key命名=jsonpath_rela.响应中的字段名
     示例：zmm_id=jsonpath_rela.id
     jsonpath_rela表示使用相对路径查找接口响应中字段名为id的值，命名zmm_id为key，存储至redis中
@@ -480,102 +437,24 @@ custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
     写法：redis的key命名=jsonpath_abs.响应中的字段名
     示例：zmm_id=jsonpath_abs.data.0.id
     jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字段值，命名zmm_id为key，存储至redis中
-
+### 2）调用用例接口
+    
+    具体写法前面已介绍，不再具体概述
 ### 3）操作业务mysql
-    写法：mysql_库索引.库名.redis的key命名=sql语句（查询操作）
-    示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='12345'
-    库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
-    执行sql后查询到id值，命名zmm_id为key，存储至redis中
-
-    写法：mysql_库索引.库名.redis的key命名=sql语句（插入、更新、删除操作）
-    示例：mysql_1.user_basic.zmm_id=update user_basic set user_name='测试' where user_id='12345'
-    库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
-    执行插入、更新、删除操作不同于查询操作，不会存储变量值
-
-    写法：mysql_库索引.库名.redis的key命名=sql语句（存在####）
-    示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='##user_id##'
-    此写法新增了从redis获取变量值，然后再去直接mysql查询操作，执行sql后查询到id值，命名zmm_id为key，存储至redis中
-
+    
+    具体写法前面已介绍，不再具体概述
 ### 4）操作业务redis
-redis有多种数据类型，语法会相对较多。仅查询操作会存储变量值
-#### 字符串数据类型
-    写法：redis.库索引.redis的key命名=str.select.key.value（新增操作）
-    示例：redis.1.zmm_id=str.add.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
 
-    写法：redis.库索引.redis的key命名=str.select.key（查询操作）
-    示例：redis.1.zmm_id=str.add.id
-    从业务redis查询key为id的值，命名zmm_id为key，存储至redis中
-
-    写法：redis.库索引.redis的key命名=str.delete.key（删除操作）
-    示例：redis.1.zmm_id=str.delete.id
-    向业务redis删除key为id的数据
-
-#### 哈希数据类型
-    写法：redis.库索引.redis的key命名=hash.add.key.name.value（新增/编辑操作）
-    示例：redis.1.zmm_id=hash.add.data.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增/编辑key为data，name为id，value为100的哈希数据
-
-    写法：redis.库索引.redis的key命名=hash.select.key.name（查询操作）
-    示例：redis.1.zmm_id=hash.select.data.id
-    从业务redis查询key为data，name为id的值，命名zmm_id为key，存储至redis中
-
-    写法：redis.库索引.redis的key命名=hash.delete.key.name（删除操作）
-    示例：redis.1.zmm_id=hash.delete.data.id
-    向业务redis删除key为data，name为id的数据
-
-#### 列表数据类型
-    写法：redis.库索引.redis的key命名=list.ladd.key.name（头部新增操作）
-    示例：redis.1.zmm_id=list.ladd.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
-    当数据存在时，从列表头部新增此数据
-    
-    写法：redis.库索引.redis的key命名=list.radd.key.name（尾部新增操作）
-    示例：redis.1.zmm_id=list.radd.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
-    当数据存在时，从列表尾部新增此数据
-
-    写法：redis.库索引.redis的key命名=list.select.key.2（查询操作）
-    示例：redis.1.zmm_id=list.select.id.2
-    从业务redis查询key为id，第2个值，命名zmm_id为key，存储至redis中
-
+    具体写法前面已介绍，不再具体概述
 ### 5）强制等待操作
-    写法：sleep5
-    强制等待5秒
-
+    
+    具体写法前面已介绍，不再具体概述
 ### 6）存储自定义数据
-    写法：custom.redis的key命名=自定义值
-    custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91
-    向redis存储key为zmm_token，value为da173228-29b3-40c0-b9b0-04b364756c91的数据    
-
+    
+    具体写法前面已介绍，不再具体概述
 ### 7）特殊变量值
-可插入任意位置
-    
-    时间格式变量：
-        当接口传参需要依赖当前时间时，可以直接使用以下写法
-        {{秒截止+2m}} ---秒截止表示精确到秒，2m表示当前时间加2分钟，如2021-04-12 15:36:44
-        {{秒截止-2m}} ---秒截止表示精确到秒，2m表示当前时间减2分钟
-        {{秒截止+2h}} ---秒截止表示精确到秒，2h表示当前时间加2小时
-        {{秒截止+2d}} ---秒截止表示精确到秒，2d表示当前时间加2天
-        {{秒截止+2M}} ---秒截止表示精确到秒，2M表示当前时间加2个月
-        {{秒截止+2Y}} ---秒截止表示精确到秒，2Y表示当前时间加2年
-        {{分截止+2m}} ---秒截止表示精确到分，2m表示当前时间加2分钟，如2021-04-12 15:36
-        ........
-        {{日截止+2d}} ---秒截止表示精确到天，2d表示当前时间加2天，如2021-04-12
-        ........
-        {{月截止-2M}} ---秒截止表示精确到月，2M表示当前时间减2个月，如2021-04
-        ........
-        {{年截止-2Y}} ---秒截止表示精确到年，2Y表示当前时间减2年，如2019
-        ........
 
-    随机手机号：
-        当传参中需要随机手机号的，可以使用以下写法   {{mobile}}，如想插入redis全局变量可写成{{zmm_xxx.mobile}}
-    
-    指定长度随机数：
-        当需要传5位随机数，可以使用以下写法 {{number5}}，如想插入redis全局变量可写成{{zmm_xxx.number5}}
-    
-    指定范围随机数：
-        当需要传指定数字区间的随机数，可以使用以下写法  {{number12-88}}
+    具体写法前面已介绍，不再具体概述
 
 ## 7、is_deleted字段
     代表是否删除。为0时，调用此用例会执行；为1时，调用此用例不会执行
