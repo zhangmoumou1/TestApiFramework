@@ -255,9 +255,12 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 ## 2、linux系统查看报告
 可以搭配jenkins，在jenkins上配置allure插件，即可查看报告
 
+<br>
+<br>
 ---
+<br>
+<br>
 
----
 # 语法格式及详细写法
 > ## mysql用例表字段有各自可支持的写法，提升用例的灵活程度
 ## 1、headers字段
