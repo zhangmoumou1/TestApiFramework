@@ -46,7 +46,7 @@
              └─ test_blog.py
        ├─ report            # 测试结果
          └─ allure_report   # allure报告文件
-         └─ logs            #日志
+         └─ logs            # 日志
        ├─ Config.py	        # 配置写入
        ├─ conftest.py	    # 用例的设置和清理
        ├─ pytest.ini	    # pytest配置
