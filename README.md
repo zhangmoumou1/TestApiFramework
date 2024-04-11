@@ -437,7 +437,7 @@ custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
     写法：redis的key命名=jsonpath_abs.响应中的字段名
     示例：zmm_id=jsonpath_abs.data.0.id
     jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字段值，命名zmm_id为key，存储至redis中
-### 2）调用存量接口
+### 2）调用存量用例
     
     具体写法前面已介绍，不再具体概述
 ### 3）操作业务mysql
