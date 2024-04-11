@@ -43,8 +43,6 @@
          └─ testcase 用例代码
            └─ caseBlog 示例项目文件
              └─ test_blog.py
-           └─ caseLogin   登录项目文件
-             └─ test_login.py
        ├─ report # 测试结果
          └─ allure_report #allure报告文件
          └─ logs #日志
