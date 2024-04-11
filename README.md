@@ -29,27 +29,31 @@
 ---
 # 一、目录结构
 
-    |--接口自动化测试框架 # 主目录
-       ├─ api # 示例接口目录
-         └─ flaskApi.py # flask示例接口
-       ├─ core # 封装调用主入口，requests调用、解析等核心方法
-       ├─ util # 常用工具，操作mysql、redis、log、yaml等操作
-       ├─ conf # 配置文件读取
-         └─ config.ini #项目配置
-         └─ info.yaml #接口相关配置 如接口前缀地址
-         └─ mysql.yaml #mysql连接信息
-         └─ redis.yaml #redis连接信息
-       ├─ testcase # 测试相关文件
-         └─ testcase 用例代码
-           └─ caseBlog 示例项目文件
+    |--接口自动化测试框架       # 主目录
+       ├─ api               # 示例接口目录
+         └─ flaskApi.py     # flask示例接口
+       ├─ core              # 封装调用主入口，requests调用、解析等核心方法
+       ├─ util              # 常用工具，操作mysql、redis、log、yaml等操作
+       ├─ conf              # 配置文件读取
+         └─ config.ini      # 项目配置
+         └─ info.yaml       # 接口相关配置 如接口前缀地址
+         └─ mysql.yaml      # mysql连接信息
+         └─ redis.yaml      # redis连接信息
+       ├─ pic               # readme.md所需的图片
+       ├─ testcase          # 测试相关文件
+         └─ testcase        # 用例代码
+           └─ caseBlog      # 示例项目文件
              └─ test_blog.py
-       ├─ report # 测试结果
-         └─ allure_report #allure报告文件
-         └─ logs #日志
-       ├─ conftest.py	   # 用例的设置和清理
-       ├─ pytest.ini	   # pytest配置
-       ├─ requirements.txt # 记录所有依赖包及其精确的版本号
-       └─ README.md
+       ├─ report            # 测试结果
+         └─ allure_report   # allure报告文件
+         └─ logs            #日志
+       ├─ Config.py	        # 配置写入
+       ├─ conftest.py	    # 用例的设置和清理
+       ├─ pytest.ini	    # pytest配置
+       ├─ requirements.txt  # 记录所有依赖包及其精确的版本号
+       ├─ README.md
+       ├─ run.bat           # windows系统执行用例脚本
+       └─ README.md         # linux系统执行用例脚本
 # 二、框架流程图
 ![img.png](pic/process2.png)
 # 三、环境配置
