@@ -233,7 +233,7 @@ https://www.jianshu.com/p/5d1ce588e18c
 ## Linux系统运行
 ### 1、运行方式1
 使用pytest命令，在项目根目录命令行输入`python -m pytest`执行
-### 2、运行方式1
+### 2、运行方式2
 根目录下执行`.\run.sh 环境`，如`.\run.sh TEST`
 # 七、查看报告
 ## 1、windows系统配置allure
