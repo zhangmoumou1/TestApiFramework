@@ -29,7 +29,7 @@
 ---
 # 一、目录结构
 
-    |--接口自动化测试框架       # 主目录
+    |--TestApiFramework       # 主目录
        ├─ api               # 示例接口目录
          └─ flaskApi.py     # flask示例接口
        ├─ core              # 封装调用主入口，requests调用、解析等核心方法
