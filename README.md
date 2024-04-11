@@ -217,14 +217,22 @@ https://www.jianshu.com/p/5d1ce588e18c
     此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2、back-zmm-1.5、back-zmm-1.6、back-zmm-1.7共6条用例
 
 # 六、运行用例
+## windows系统运行
 ### 1、运行方式1
-使用pytest命令，此处在项目根目录命令行输入`pytest .\testcase\caseBlog\case_blog.py`执行
+使用pytest命令，在项目根目录命令行输入`pytest .\testcase\caseBlog\case_blog.py`执行
 ![img.png](pic/run1.png)
 
 ### 2、运行方式2
 或者pycharm选择用例代码文件（如`case_blog.py`）运行
 ![img.png](pic/run2.png)
 
+### 3、运行方式3
+根目录下执行`.\run.bat 环境`，如`.\run.bat TEST`
+## Linux系统运行
+### 1、运行方式1
+使用pytest命令，在项目根目录命令行输入`python -m pytest`执行
+### 2、运行方式1
+根目录下执行`.\run.sh 环境`，如`.\run.sh TEST`
 # 七、查看报告
 ## 1、windows系统配置allure
 本地运行完后，可以安装allure来看报告
@@ -242,6 +250,9 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 ### 5）查看报告
 打开浏览器查看报告
 ![img.png](pic/allure.png)
+
+## 2、linux系统查看报告
+可以搭配jenkins，在jenkins上配置allure插件，即可查看报告
 
 ---
 
