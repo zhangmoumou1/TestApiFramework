@@ -242,8 +242,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 ### 2）配置jdk环境
 自行百度
 ### 3）配置环境变量
-将allure的bin目录添加到系统环境变量下，配置完成后在命令窗口输入allure验证是否配置成功
-![img.png](pic/path.png)
+将allure的bin目录添加到系统环境变量下
 ### 4）运行本地生成的报告
 报告文件上层目录下，输入allure serve 报告文件名称，执行
 ![img.png](pic/cmd.png)
