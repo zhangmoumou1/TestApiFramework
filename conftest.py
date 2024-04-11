@@ -25,7 +25,11 @@ def login_first() -> None:
         Log().critical(f'---------------------获取登录信息结束----------------------')
 
 def pytest_terminal_summary(terminalreporter):
-    """将运行结果发送至钉钉和预发用例统计数据"""
+    """
+    将运行结果发送至钉钉和预发用例统计数据
+    :param terminalreporter:
+    :return:
+    """
     cases = terminalreporter._numcollected
     case_pass = len(terminalreporter.stats.get('passed', []))
     case_fail = len(terminalreporter.stats.get('failed', []))

@@ -17,7 +17,7 @@ class MessageConstructor(object):
         """
         try:
             btns1 = [{"title": "查看报告详情", "actionURL": '报告地址'}]
-            content = "项目：多保鱼  \n" \
+            content = "项目：博客  \n" \
                       "环境：{}  \n" \
                       "总用例数：{}  \n" \
                       "通过数：{}  \n" \
