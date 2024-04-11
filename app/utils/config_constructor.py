@@ -34,5 +34,21 @@ class ConfigConstructor(object):
         except Exception as e:
             raise f'<<config.ini配置异常>>未找到{key}下{name}的值，请检查对应值是否存在：{e}'
 
+    def update_env_conf(self, env):
+        """
+        config.ini写入环境
+        """
+        from app.utils.logger_constructor import Log
+        try:
+            self.cf.read(self.configpath, encoding='utf-8')
+            self.cf.set("envConfig", "environment", env)
+            with open(self.configpath, "w+", encoding='gbk') as f:
+                self.cf.write(f)
+                Log().info(f'config.ini写入项目环境成功：{env}')
+        except Exception as e:
+            Log().error(f'项目环境写入.ini文件失败：{e}')
+            raise Exception('config.ini写入项目环境失败')
+
 if __name__ == "__main__":
-    print(ConfigConstructor().getValue('envConfig', 'environment'))
+    # print(ConfigConstructor().getValue('envConfig', 'environment'))
+    ConfigConstructor().update_env_conf('ONLINE')
