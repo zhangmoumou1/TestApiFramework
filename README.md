@@ -40,17 +40,16 @@
          └─ mysql.yaml      # mysql连接信息
          └─ redis.yaml      # redis连接信息
        ├─ pic               # readme.md所需的图片
-       ├─ testcase          # 测试相关文件
-         └─ testcase        # 用例代码
-           └─ caseBlog      # 示例项目文件
-             └─ test_blog.py
+       ├─ testcase          # 测试用例
+         └─ caseBlog        # 对应项目目录
+           └─ test_blog.py
        ├─ report            # 测试结果
          └─ allure_report   # allure报告文件
          └─ logs            # 日志
        ├─ Config.py	        # 配置写入
        ├─ conftest.py	    # 用例的设置和清理
        ├─ pytest.ini	    # pytest配置
-       ├─ requirements.txt  # 记录所有依赖包及其精确的版本号
+       ├─ requirements.txt  # 记录所有依赖包及版本号
        ├─ README.md
        ├─ run.bat           # windows系统执行用例脚本
        └─ README.md         # linux系统执行用例脚本
