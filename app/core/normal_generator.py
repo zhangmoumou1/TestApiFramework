@@ -309,6 +309,19 @@ class NormalGenarator(object):
             attachment_type=allure.attachment_type.TEXT
         )
 
+    @staticmethod
+    def check_json(data):
+        """
+        解析str是否为json类型
+        """
+        try:
+            import json
+            json.loads(data)
+            return True
+        except:
+            return False
 
 if __name__ == "__main__":
     NormalGenarator.header_generator('aa=11；bb=22')
+    aa = NormalGenarator.check_json('{"username":"test","password":"123456"}')
+    print(aa)

@@ -137,7 +137,7 @@ class Genetator(object):
         try:
             body = NormalGenarator.obtain_global_variable_any(data['case_param'])
             log_title = '获取传参成功'
-            log = f'获取传参成功，{body}'
+            log = f'{body}'
             Log().info(f'<<{log_title}>>{log}')
             return body
         except Exception as e:
