@@ -165,19 +165,19 @@ https://www.jianshu.com/p/5d1ce588e18c
     
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.0', '张某某', 'BlogProject', '文章管理', '文章列表', 'GET', 'token=##BlogProject_token##', '/api/articleList', NULL, NULL, '包含&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+    VALUES('zmm-1.0', '张某某', 'BlogProject', '文章管理', '文章列表', 'GET', 'token=##BlogProject_token##', '/api/articleList', NULL, NULL, '相等&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.1', '张某某', 'BlogProject', '文章管理', '新增文章', 'POST', 'token=##BlogProject_token##', '/api/addArticle', '{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '包含&&{"code":"200","message":"添加新文章成功！","success":true}&&', 'sleep2', 'mysql_1.test_cases.zmm_case_name=select case_name from base_login where case_id=''zmm-1.0''', NULL, '开发者', '2023-03-10', NULL, 0);
+    VALUES('zmm-1.1', '张某某', 'BlogProject', '文章管理', '新增文章', 'POST', 'token=##BlogProject_token##', '/api/addArticle', '{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '存在&&添加新文章成功&&；自定义相等&&账密登录成功==##zyc_case_name.case_name##&&', 'sleep2', 'mysql_1.test_cases.zyc_case_name=select case_name from base_login where case_id=''zmm-1.0''', NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
     VALUES('zmm-1.2', '张某某', 'BlogProject', '文章管理', '查看新增的文章', 'GET', 'token=##BlogProject_token##', '/api/article/3', NULL, NULL, '包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '包含&&{"code":"200","message":"更新文章信息成功！","success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+    VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '不相等&&{"code":"200","message":"##zyc_case_name.case_name##","success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, NULL, '包含&&{"code":"200","message":"删除文章成功！","success":true}&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
+    VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, NULL, '包含&&"message": "删除文章成功！"&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
 
 
 ### 5、编写用例代码
