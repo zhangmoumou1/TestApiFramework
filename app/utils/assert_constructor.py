@@ -80,13 +80,16 @@ class AssertConstructor(object):
                     if text.startswith('不相等&&') is True:
                         # 不填写规则，顺序和字母大小写校验默认忽略
                         ignore_order, ignore_type, specify = True, True, []
-                        assert_match = json.loads((re.findall("&&(.+?)&&", text)[0]).replace("'", '"'))
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = json.loads((re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"'))
                         result = AssertConstructor.assert_not_equal(actual, assert_match, ignore_order, ignore_type, specify)
                     elif text.startswith('不包含&&') is True:
-                        assert_match = (re.findall("&&(.+?)&&", text)[0]).replace("'", '"')
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = (re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"')
                         result = AssertConstructor.assert_not_contain(actual, assert_match)
                     elif text.startswith('不存在&&') is True:
-                        assert_match = (re.findall("&&(.+?)&&", text)[0]).replace("'", '"')
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = (re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"')
                         result = AssertConstructor.assert_not_exist(actual, assert_match)
                     elif text.startswith('相等(') is True:
                         settings_match = text.split('&&')[0]
@@ -98,22 +101,30 @@ class AssertConstructor(object):
                         for settings in settings_text.split(','):
                             if 'root' in settings:
                                 specify.append(settings)
-                        assert_match = json.loads((re.findall("&&(.+?)&&", text)[0]).replace("'", '"'))
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = json.loads((re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"'))
                         result = AssertConstructor.assert_equal(actual, assert_match, ignore_order, ignore_type, specify)
                     elif text.startswith('相等&&') is True:
                         # 不填写规则，顺序和字母大小写校验默认忽略
                         ignore_order, ignore_type, specify = True, True, []
-                        assert_match = json.loads((re.findall("&&(.+?)&&", text)[0]).replace("'", '"'))
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = json.loads((re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"'))
                         result = AssertConstructor.assert_equal(actual, assert_match, ignore_order, ignore_type, specify)
                     elif text.startswith('包含&&') is True:
-                        assert_match = (re.findall("&&(.+?)&&", text)[0]).replace("'", '"')
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = (re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"')
                         result = AssertConstructor.assert_contain(actual, assert_match)
                     elif text.startswith('存在&&') is True:
-                        assert_match = (re.findall("&&(.+?)&&", text)[0]).replace("'", '"')
+                        deal_data = NormalGenarator.obtain_global_variable_any(text)
+                        assert_match = (re.findall("&&(.+?)&&", deal_data)[0]).replace("'", '"')
                         result = AssertConstructor.assert_exist(actual, assert_match)
                     else:
                         raise '格式有误'
-                    expect = text
+                    # 为了解决##替换变量，格式化json
+                    if NormalGenarator.check_json(assert_match) is True:
+                        expect = json.dumps(json.loads(assert_match), ensure_ascii=False)
+                    else:
+                        expect = assert_match
                     actual = json.dumps(actual, ensure_ascii=False)
                 # 当前断言失败，日志需要标记失败
                 if result != '':
@@ -131,10 +142,16 @@ class AssertConstructor(object):
                 return True
             # 断言失败
             else:
+                # 只有1个断言时，去掉序列
+                if assert_num == 1:
+                    assert_detail = assert_detail.replace('第1个断言失败：\n', '')
                 log_title = '断言失败'
                 Log().warning(f'<<{log_title}>>{assert_detail}')
                 return False
         except Exception as e:
+            # 只有1个断言时，去掉序列
+            if assert_num == 1:
+                assert_detail = assert_detail.replace('第1个断言失败：\n', '')
             log_title = '断言失败'
             Log().warning(f'<<{log_title}>>{assert_detail}')
             return False
