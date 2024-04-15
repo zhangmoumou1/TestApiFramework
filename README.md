@@ -1,7 +1,6 @@
 # 接口自动化测试框架
 
 <p>
-    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version1.svg"></a>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/test.svg"></a>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/docs.svg"></a>	
@@ -10,7 +9,7 @@
 
 ## 技术栈
 
- 🎨 Python3.8<br>
+ 🎨 Python3.8（3.x版本基本支持）<br>
  🏐 Pytest<br>
  ☕ Redis（存储变量）<br>
  🚚 Mysql（存储用例）<br>
