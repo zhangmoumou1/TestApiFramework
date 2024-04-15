@@ -6,7 +6,7 @@
     <a href="https://github.com/zhangmoumou1/TestApiFramework"><img src="http://cdn.zhangyanc.club/cdn/readme/platform.svg"></a>
     <a href="https://im.qq.com/index/"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
     <a href="https://github.com/zhangmoumou1/TestApiFramework"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
-    <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/blog-blue.svg"></a>
+    <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
 
 ## 技术栈
