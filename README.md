@@ -2,8 +2,8 @@
 
 <p>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
-    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
+    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version1.svg"></a>
+	<a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
 </p>
 
 ## 技术栈
