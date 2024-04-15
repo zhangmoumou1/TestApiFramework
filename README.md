@@ -1,11 +1,19 @@
 # 接口自动化测试框架
 
+<p>
+    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
+    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version.svg"></a>
+    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
+</p>
+<br />
+
 ## 技术栈
- 🎨 Python3.8（及以上稳定版本）<br>
- 🏐 Pytest（用例编排执行）<br>
+
+ 🎨 Python3.8<br>
+ 🏐 Pytest<br>
  ☕ Redis（存储变量）<br>
  🚚 Mysql（存储用例）<br>
- ⚽ Allure（报告插件）
+ ⚽ Allure
 
 ## 框架优势
 
@@ -57,7 +65,7 @@
        ├─ run.bat           # windows系统执行用例脚本
        └─ run.sh            # linux系统执行用例脚本
 # 二、框架流程图
-![img.png](pic/process2.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/process.png)
 # 三、环境配置
 安装好mysql和redis后，请启动对应服务保证能连接成功
 ## 1、安装mysql
@@ -86,7 +94,7 @@ https://www.jianshu.com/p/5d1ce588e18c
 
 注：接口前缀使用`http://127.0.0.1:5000`，可在当前页面或者使用接口工具验证接口是否正常
 
-![img.png](pic/api.jpg)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/api.jpg)
 # 五、如何编写用例
 ### 1、录入配置
 #### 1）config.ini
@@ -227,10 +235,10 @@ https://www.jianshu.com/p/5d1ce588e18c
 ### 2、运行方式2
 
 根目录下执行`.\run.bat 环境`，如`.\run.bat TEST`
-![img.png](pic/run1.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/run1.png)
 ### 3、运行方式3
 或者pycharm选择用例代码文件（如`case_blog.py`）运行
-![img.png](pic/run2.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/run2.png)
 ## Linux系统运行
 ### 1、运行方式1
 使用pytest命令，在项目根目录命令行输入`python -m pytest`执行
@@ -248,10 +256,10 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 将allure的bin目录添加到系统环境变量下
 ### 4）运行本地生成的报告
 报告文件上层目录下，输入allure serve 报告文件名称，执行
-![img.png](pic/cmd.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/cmd.png)
 ### 5）查看报告
 打开浏览器查看报告
-![img.png](pic/allure.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/allure.png)
 
 ## 2、linux系统查看报告
 可以搭配jenkins，在jenkins上配置allure插件，即可查看报告
