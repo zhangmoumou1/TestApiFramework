@@ -22,6 +22,9 @@
 <tr>
     <td>✅ Mysql+Redis组合搭配，方便管理用例及后续数据统计</td>
 </tr>
+<tr>
+    <td>✅ 支持接口响应、自定义、mysql、redis多断言</td>
+</tr>
 </table>
 
 ## 注意 
