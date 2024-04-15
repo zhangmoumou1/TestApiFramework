@@ -210,14 +210,14 @@ https://www.jianshu.com/p/5d1ce588e18c
 🎉 parameterization_data()内的用例id详细写法说明如下
 
     调用单条用例写法
-    MysqlConstructor.parameterization_data('baseprocess', 'back-zmm-1.0')
+    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0')
 
     调用多条用例写法
-    MysqlConstructor.parameterization_data('baseprocess', 'back-zmm-1.0#back-zmm-1.2')
+    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2')
     此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2共3条用例
 
     调用分离的多条用例写法
-    MysqlConstructor.parameterization_data('baseprocess', 'back-zmm-1.0#back-zmm-1.2,back-zmm-1.5#back-zmm-1.7')
+    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2,back-zmm-1.5#back-zmm-1.7')
     此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2、back-zmm-1.5、back-zmm-1.6、back-zmm-1.7共6条用例
 
 # 六、运行用例
