@@ -1,11 +1,9 @@
 # 接口自动化测试框架
 
-<p>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/test.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/docs.svg"></a>	
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
-</p>
+<a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python.svg"></a>
+<a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/platform.svg"></a>
+<a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
+<a href="www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/blog-yellow.svg"></a>
 
 ## 技术栈
 
