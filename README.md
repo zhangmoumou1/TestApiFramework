@@ -365,21 +365,6 @@ redis具体命令请自行在网上借鉴学习
     示例：redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token
     语法：redis.库索引(默认16个库).存入用例redis的key名=redis语法
 
-#### 列表数据类型
-    写法：redis.库索引.redis的key命名=list.ladd.key.name（头部新增操作）
-    示例：redis.1.zmm_id=list.ladd.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
-    当数据存在时，从列表头部新增此数据
-    
-    写法：redis.库索引.redis的key命名=list.radd.key.name（尾部新增操作）
-    示例：redis.1.zmm_id=list.radd.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
-    当数据存在时，从列表尾部新增此数据
-
-    写法：redis.库索引.redis的key命名=list.select.key.2（查询操作）
-    示例：redis.1.zmm_id=list.select.id.2
-    从业务redis查询key为id，第2个值，命名zmm_id为key，存储至redis中
-
 ### 4）强制等待操作
     写法：sleep5
     强制等待5秒
