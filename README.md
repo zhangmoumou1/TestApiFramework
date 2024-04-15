@@ -126,7 +126,7 @@ https://www.jianshu.com/p/5d1ce588e18c
       `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
       `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
       `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
-      `created_time` date DEFAULT NULL COMMENT '接口创建时间',
+      `created_time` date DEFAULT NULL COMMENT '创建时间',
       `text` longtext COMMENT '备注',
       `is_deleted` int DEFAULT '0'
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='登录用例';
@@ -146,7 +146,7 @@ https://www.jianshu.com/p/5d1ce588e18c
       `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
       `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
       `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
-      `created_time` date DEFAULT NULL COMMENT '接口创建时间',
+      `created_time` date DEFAULT NULL COMMENT '创建时间',
       `text` longtext COMMENT '备注',
       `is_deleted` int DEFAULT '0'
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章接口用例';
