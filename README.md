@@ -359,32 +359,11 @@ custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
     此写法新增了从redis获取变量值，然后再去直接mysql查询操作，执行sql后查询到id值，命名zmm_id为key，存储至redis中
 
 ### 3）操作业务redis
-redis有多种数据类型，语法会相对较多。仅查询操作会存储变量值
-#### 字符串数据类型
-    写法：redis.库索引.redis的key命名=str.select.key.value（新增操作）
-    示例：redis.1.zmm_id=str.add.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增key为id，value为100的字符串数据
+redis命令为查询操作时，将会把结果存入全局变量，提供后续使用；<br>
+redis具体命令请自行在网上借鉴学习
 
-    写法：redis.库索引.redis的key命名=str.select.key（查询操作）
-    示例：redis.1.zmm_id=str.add.id
-    从业务redis查询key为id的值，命名zmm_id为key，存储至redis中
-
-    写法：redis.库索引.redis的key命名=str.delete.key（删除操作）
-    示例：redis.1.zmm_id=str.delete.id
-    向业务redis删除key为id的数据
-
-#### 哈希数据类型
-    写法：redis.库索引.redis的key命名=hash.add.key.name.value（新增/编辑操作）
-    示例：redis.1.zmm_id=hash.add.data.id.100
-    库索引为了指定具体库（redis默认16个库），向业务redis新增/编辑key为data，name为id，value为100的哈希数据
-
-    写法：redis.库索引.redis的key命名=hash.select.key.name（查询操作）
-    示例：redis.1.zmm_id=hash.select.data.id
-    从业务redis查询key为data，name为id的值，命名zmm_id为key，存储至redis中
-
-    写法：redis.库索引.redis的key命名=hash.delete.key.name（删除操作）
-    示例：redis.1.zmm_id=hash.delete.data.id
-    向业务redis删除key为data，name为id的数据
+    示例：redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token
+    语法：redis.库索引(默认16个库).存入用例redis的key名=redis语法
 
 #### 列表数据类型
     写法：redis.库索引.redis的key命名=list.ladd.key.name（头部新增操作）

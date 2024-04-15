@@ -44,7 +44,7 @@ class NormalGenarator(object):
                     NormalGenarator.dispose_mysql(project_name, values)
                 elif 'redis' in values:
                     # 处理redis操作
-                    NormalGenarator.dispose_redis(project_name, values)
+                    NormalGenarator.dispose_redis_command(project_name, values)
                 elif 'sleep' in values:
                     # 处理等待操作
                     NormalGenarator.sleep_generator(values)
@@ -88,7 +88,7 @@ class NormalGenarator(object):
                     NormalGenarator.dispose_mysql(project_name, values)
                 elif 'redis' in values:
                     # 处理redis操作
-                    NormalGenarator.dispose_redis(project_name, values)
+                    NormalGenarator.dispose_redis_command(project_name, values)
                 elif 'sleep' in values:
                     # 处理等待操作
                     NormalGenarator.sleep_generator(values)
@@ -203,6 +203,45 @@ class NormalGenarator(object):
             Log().error(f'<<处理/存储redis数据变量>>[{values}]写法有误，请检查格式及语句是否正确：{e}')
 
     @staticmethod
+    def dispose_redis_command(project_name, values):
+        """
+        redis.1.zyc_id=get key(redis.库.全局变量名=redis命令)
+        """
+        try:
+            param_start = values.split('=')[0]
+            redis_num = param_start.split('.')[1]
+            param_end = values.split('=')[-1]
+            # key/value/name中需要传全局变量
+            if '##' in param_end:
+                redis_actual = NormalGenarator.obtain_global_variable_any(project_name, param_end)
+            else:
+                redis_actual = param_end
+            # 判断命令是否为查询操作
+            select_flag = ['GET', 'GETRANGE', 'MGET', 'HGET', 'HGETALL', 'HKEYS', 'HLEN', 'HMGET',
+                           'LINDEX', 'LLEN', 'LRANGE', 'SCARD', 'SDIFF', 'SINTER', 'SMEMBERS', 'SUNION', 'ZCARD', 'ZCOUNT',
+                           'ZLEXCOUN', 'ZRANGE', 'ZRANGEBYLEX', 'ZRANGEBYSCORE', 'ZRANK', 'ZREVRANGE', 'ZREVRANGEBYSCORE',
+                           'ZREVRANK', 'ZSCORE']
+            # redis语句是否为查询语句
+            is_need = False
+            for flag in select_flag:
+                if param_end.startswith(flag) is True:
+                    is_need = True
+            for flag in select_flag:
+                if param_end.startswith(flag.lower()) is True:
+                    is_need = True
+            if is_need is True:
+                redis_result = RedisConstructor.command_redis(project_name, redis_num, redis_actual)
+                RedisConstructor.handle_case_redis('insert', param_start.split('.')[-1],
+                                                   redis_result)
+            else:
+                redis_result = RedisConstructor.command_redis(project_name, redis_num, redis_actual)
+        except Exception as e:
+            Log().error(f'<<处理/存储redis数据变量>>[{values}]写法有误，请检查格式及语句是否正确：{e}')
+            raise
+        finally:
+            return redis_result
+
+    @staticmethod
     def obtain_global_variable_any(values):
         """
         替换多个全局变量
@@ -245,7 +284,7 @@ class NormalGenarator(object):
                 list_num = int(list_value[1])
                 dict_key = list_value[-1]
                 value = eval(RedisConstructor.handle_case_redis('select', redis_key))[list_num][dict_key]
-            Log().info(f'<<提取全局变量>>{env}环境，全局变量【{values}】提取成功：{str(value)}')
+            Log().info(f'<<提取全局变量>>{env}环境，全局变量【{values}】提取成功，结果：{str(value)}')
             return str(value)
         except Exception as e:
             Log().error(f'<<提取全局变量>>提取全局变量[{values}]失败：{e}')
@@ -322,6 +361,6 @@ class NormalGenarator(object):
             return False
 
 if __name__ == "__main__":
-    NormalGenarator.header_generator('aa=11；bb=22')
-    aa = NormalGenarator.check_json('{"username":"test","password":"123456"}')
+    # NormalGenarator.header_generator('aa=11；bb=22')
+    aa = NormalGenarator.dispose_redis_command('BlogProject', 'redis.1.zyc_business_token=get aa')
     print(aa)

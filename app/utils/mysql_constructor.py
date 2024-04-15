@@ -343,7 +343,7 @@ class MysqlConstructor(object):
                                     dict_result[key] = i[num]
                                 list_result.append(dict_result)
                         results = dict_result
-                        Log().info(f'<<mysql业务库>>执行{type}.{db_name}业务库的查询sql[{sql}]成功，结果为：' + '\n' +
+                        Log().info(f'<<业务mysql库>>执行{type}.{db_name}业务库的查询sql[{sql}]成功，结果为：' + '\n' +
                                         f'{results}')
                         return results
                     # 处理多个结果，多个结果为数组[{结果1},{结果2}]
@@ -362,26 +362,26 @@ class MysqlConstructor(object):
                                     dict_result1[key] = i[num]
                                 list_result.append(dict_result1)
                         results = list_result
-                        Log().info(f'<<mysql业务库>>执行{type}.{db_name}业务库的查询sql[{sql}]成功，结果为：' + '\n' +
+                        Log().info(f'<<业务mysql库>>执行{type}.{db_name}业务库的查询sql[{sql}]成功，结果为：' + '\n' +
                                         f'{results}')
                         return results
 
             elif len(re.findall("^delete", __sql)) == 1:
                 # 执行删除操作
                 _conn.commit()
-                Log().info(f'<<mysql业务库>>执行{type}.{db_name}业务库的删除sql[{sql}]成功')
+                Log().info(f'<<业务mysql库>>执行{type}.{db_name}业务库的删除sql[{sql}]成功')
             elif len(re.findall("^insert into", __sql)) == 1:
                 # 执行新增操作
                 _conn.commit()
-                Log().info(f'<<mysql业务库>>执行{type}.{db_name}业务库的新增sql[{sql}]成功')
+                Log().info(f'<<业务mysql库>>执行{type}.{db_name}业务库的新增sql[{sql}]成功')
             elif len(re.findall("^update", __sql)) == 1:
                 # 执行更新操作
                 _conn.commit()
-                Log().info(f'<<mysql业务库>>执行{type}.{db_name}业务库的更新sql[{sql}]成功')
+                Log().info(f'<<业务mysql库>>执行{type}.{db_name}业务库的更新sql[{sql}]成功')
             _conn.close()
         except Exception as e:
             _conn.close()
-            Log().warning(f'<<mysql业务库>>执行{type}.{db_name}业务库的sql[{sql}]失败，请检查语法是否正确：{e}')
+            Log().warning(f'<<业务mysql库>>执行{type}.{db_name}业务库的sql[{sql}]失败，请检查语法是否正确：{e}')
 
 if __name__ == "__main__":
     _conn = MysqlConstructor.get_conn('BlogProject', 'case_db', f'{env.lower()}_cases')

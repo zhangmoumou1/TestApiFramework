@@ -72,7 +72,7 @@ class RedisConstructor(object):
             Log().error(f'<<redis连接异常>>连接{env}环境{project}项目{instance}.{db_num}库异常，请检查配置是否正常: {e}')
 
     @staticmethod
-    def handle_case_redis(type: str, key: str, value: str = None):
+    def handle_case_redis(type: str, key: str, value = None):
         """
         对全局变量进行操作，插入或者查询(哈希类型)
         :param project:项目名称
@@ -168,11 +168,53 @@ class RedisConstructor(object):
                 else:
                     Log().warning(f'<<redis操作>>{env}环境{project}项目{type}类型{db_num}库，'
                                     f'对键名【{args[0]}】进行{action}操作失败：请检查写法是否正确')
+                    result = None
+                Log().info(f'<<redis操作>>{env}环境{project}项目{type}类型{db_num}库，'
+                           f'对键名【{args[0]}】进行{action}操作成功：{result}')
         except Exception as e:
             Log().error(f'<<redis操作>>{env}环境{project}项目{type}类型{db_num}库，'
                             f'对键名【{args[0]}】进行{action}操作失败：请检查写法是否正确: {e}')
         finally:
             _redis_conn.connection_pool.disconnect()
-            Log().info(f'<<redis操作>>{env}环境{project}项目{type}类型{db_num}库，'
-                       f'对键名【{args[0]}】进行{action}操作成功：{result}')
             return result
+
+    @staticmethod
+    def command_redis(project: str, db_num: int, command, instance='business_db'):
+        """
+        对用例/业务redis进行增删改查操作，分为字符串、列表、哈希、集合类型
+        :param project 项目
+        :param type 库类型
+        :param db_num 库索引
+        :param action 增删改查
+        :param *args key/name/valuer
+        :return:
+        """
+        import json
+        from app.core.normal_generator import NormalGenarator
+        try:
+            _redis_conn = RedisConstructor.__get_conn(db_num, project, instance)
+            result_data = _redis_conn.execute_command(command)
+            if isinstance(result_data, bytes):
+                results = result_data.decode('utf-8')
+            elif isinstance(result_data, list):
+                results = []
+                for list_data in result_data:
+                    data = (list_data.decode('utf-8')).replace("'", '"')
+                    if NormalGenarator.check_json(data) is True:
+                        result = json.loads(data)
+                    else:
+                        result = data
+                    results.append(result)
+            Log().info(f'<<业务redis操作>>{env}环境{project}项目{db_num}库，执行redis语句【{command}】成功，结果为：{results}')
+            return result
+        except Exception as e:
+            Log().error(f'<<业务redis操作>>{env}环境{project}项目{db_num}库，执行redis语句【{command}】失败')
+            raise
+        finally:
+            _redis_conn.connection_pool.disconnect()
+            return results
+
+if __name__ == "__main__":
+    # command = 'hmget qa_TEST_interface_params zyc_case_name'
+    command = 'get aa'
+    print(RedisConstructor.command_redis('BlogProject', 1, command))
