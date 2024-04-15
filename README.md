@@ -5,7 +5,6 @@
     <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version.svg"></a>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
 </p>
-<br />
 
 ## 技术栈
 
