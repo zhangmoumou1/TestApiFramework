@@ -1,5 +1,9 @@
-# -*- coding: utf-8 -*-
-# @desc     : 获取用例执行结果，并发送至钉钉
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @@Author: 张某某
+# @@Create Date: 2023/02/16 10:28
+# @@Description: pytest设置共享
+# @@Copyright © zhangmoumou, Inc. All rights reserved.
 
 import time
 import pytest
