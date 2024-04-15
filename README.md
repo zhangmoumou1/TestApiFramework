@@ -4,7 +4,7 @@
 <p>
     <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python.svg"></a>
     <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/platform.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
+    <a href="https://im.qq.com/index/"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/blog-yellow.svg"></a>
 </p>
 
