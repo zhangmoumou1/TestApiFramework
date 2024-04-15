@@ -174,7 +174,7 @@ https://www.jianshu.com/p/5d1ce588e18c
     VALUES('zmm-1.2', '张某某', 'BlogProject', '文章管理', '查看新增的文章', 'GET', 'token=##BlogProject_token##', '/api/article/3', NULL, NULL, '包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '不相等&&{"code":"200","message":"##zyc_case_name.case_name##","success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+    VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', NULL, '不相等&&{"code":"200","message":"##zyc_case_name.case_name##","success":true}&&', 'redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token', NULL, NULL, '开发者', '2023-03-10', NULL, 0);
     INSERT INTO article
     (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert_settings, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
     VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, NULL, '包含&&"message": "删除文章成功！"&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
