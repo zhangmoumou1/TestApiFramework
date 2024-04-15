@@ -287,7 +287,7 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 
 `/transbiz_2c/user/getFsUserIdByUserId.run?userId=##zmm_userId##`  
 ### 1）从用例redis获取变量值
-    具体写法前面已介绍，不再具体概述
+    双##写法，具体写法前面已介绍，不再具体概述
 
 ### 2）特殊变量值
 可插入任意位置
