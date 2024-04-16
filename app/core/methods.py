@@ -31,7 +31,7 @@ from app.utils.logger_constructor import Log
 from dbutils.pooled_db import PooledDB
 from sshtunnel import SSHTunnelForwarder
 from app.utils.yaml_constructor import YamlConstructor
-from app.Config import env, uuid, local_switch, server_switch, ding_token
+from read_config import env, uuid, local_switch, server_switch, ding_token
 from app.core.decorator import response_decorator, login_decorator
 from app.core.http_generator import HttpGenerator
 from app.core.login_generator import LoginGenerator

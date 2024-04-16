@@ -9,7 +9,7 @@ import os
 import logging
 import time
 import colorlog
-from app.Config import log_path
+from read_config import log_path
 
 class Log(object):
     def __init__(self):

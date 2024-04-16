@@ -6,7 +6,7 @@
 # @@Copyright © zhangmoumou, Inc. All rights reserved.
 
 from app.core.methods import Log, SSHTunnelForwarder, YamlConstructor, platform, env, local_switch, server_switch, redis, random
-from app.Config import ssh_ip, ssh_port, ssh_password, ssh_username
+from read_config import ssh_ip, ssh_port, ssh_password, ssh_username
 
 SYSTEM_VERSION = platform.platform()
 

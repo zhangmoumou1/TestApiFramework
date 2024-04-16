@@ -58,7 +58,8 @@
        ├─ report            # 测试结果
          └─ allure_report   # allure报告文件
          └─ logs            # 日志
-       ├─ Config.py	        # 配置写入
+       ├─ load_config.py	# 配置写入
+       ├─ read_config.py	# 配置读取
        ├─ conftest.py	    # 用例的设置和清理
        ├─ pytest.ini	    # pytest配置
        ├─ requirements.txt  # 记录所有依赖包及版本号

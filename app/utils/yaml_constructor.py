@@ -8,7 +8,7 @@
 # *********************************************************#
 
 from app.core.methods import sys, os, yaml
-from app.Config import env
+from read_config import env
 from app.utils.logger_constructor import Log
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]

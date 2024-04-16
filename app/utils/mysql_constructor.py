@@ -7,7 +7,7 @@
 
 from app.core.methods import Log, PooledDB, SSHTunnelForwarder, YamlConstructor, platform, pymysql, env, re, \
     datetime, local_switch, server_switch, List, Dict
-from app.Config import ssh_ip, ssh_port, ssh_password, ssh_username
+from read_config import ssh_ip, ssh_port, ssh_password, ssh_username
 
 SYSTEM_VERSION = platform.platform()
 

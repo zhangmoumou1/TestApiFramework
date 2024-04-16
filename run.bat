@@ -7,6 +7,6 @@
 
 @echo off
 chcp 65001
-python .\Config.py %1
+python .\load_config.py %1
 pytest
 echo ###################写入%1环境，执行pytest命令，运行用例结束###################

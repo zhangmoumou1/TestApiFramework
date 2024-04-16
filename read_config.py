@@ -11,7 +11,7 @@ import os
 from app.utils.config_constructor import ConfigConstructor
 
 # 读取配置文件路径
-prj_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+prj_path = os.path.dirname(__file__)
 read_config = ConfigConstructor()
 
 # 读取配置文件里的参数
