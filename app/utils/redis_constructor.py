@@ -5,7 +5,8 @@
 # @@Description: redis功能构造
 # @@Copyright © zhangmoumou, Inc. All rights reserved.
 
-from app.core.methods import Log, SSHTunnelForwarder, YamlConstructor, platform, env, local_switch, server_switch, redis, random
+from app.core.methods import Log, SSHTunnelForwarder, YamlConstructor, platform, env, local_switch, server_switch, \
+    redis, random, warnings
 from read_config import ssh_ip, ssh_port, ssh_password, ssh_username
 
 SYSTEM_VERSION = platform.platform()
@@ -99,7 +100,7 @@ class RedisConstructor(object):
     @staticmethod
     def handle_redis(project: str, instance: str, db_num: int, type: str, action: str, *args: list):
         """
-        对用例/业务redis进行增删改查操作，分为字符串、列表、哈希、集合类型
+        （已废弃）对用例/业务redis进行增删改查操作，分为字符串、列表、哈希、集合类型
         :param project 项目
         :param type 库类型
         :param db_num 库索引
@@ -107,6 +108,7 @@ class RedisConstructor(object):
         :param *args key/name/valuer
         :return:
         """
+        warnings.warn('此方法已弃用，不推荐使用', DeprecationWarning)
         try:
             _redis_conn = RedisConstructor.__get_conn(db_num, project, instance)
             if action == 'delete':

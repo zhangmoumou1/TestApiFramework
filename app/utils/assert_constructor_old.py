@@ -2,12 +2,13 @@
 # -*- coding:utf-8 -*-
 # @@Author: 张某某
 # @@Create Date: 2023/02/16 10:28
-# @@Description: 接口断言功能构造，可忽略指定字段报错、字段顺序、字段大小写
+# @@Description: 接口断言功能构造（已废弃）
 # @@Copyright © zhangmoumou, Inc. All rights reserved.
-from app.core.methods import DeepDiff, Log, re, json
+from app.core.methods import DeepDiff, Log, re, json, warnings
 
 
 class AssertConstructor(object):
+    warnings.warn('此方法已弃用，不推荐使用', DeprecationWarning)
     """
     可进行全字段校验，校验多次
     断言内容：相等(排序生效;类型生效;root['applicantInfo']['mobile'])**{xxx}**;包含**{xxx}**

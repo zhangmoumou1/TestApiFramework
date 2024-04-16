@@ -3,13 +3,13 @@
 # *********************************************************#
 # @@Author: 张某某
 # @@Create Date: 2021-03-25 22:24:14
-# @@Description: 登录请求生成器
+# @@Description: 登录请求生成器（已废弃）
 # @@Copyright © 91duobaoyu, Inc. All rights reserved.
 # *********************************************************#
 
-from app.core.methods import HttpGenerator, env, YamlConstructor, json, Log
+from app.core.methods import HttpGenerator, env, YamlConstructor, json, Log, warnings
 class LoginGenerator():
-
+    warnings.warn('此方法已弃用，不推荐使用', DeprecationWarning)
     headers = {
         'content-type': 'application/json; charset=UTF-8',
         'X-Ca-Stage': env

@@ -68,9 +68,6 @@ class Genetator(object):
             'content-type': 'application/json; charset=UTF-8',
             'X-Ca-Stage': env
         }
-        # 无值时，需要传入token
-        # if add_headers not in [None, '']:
-        #     headers['token'] = LoginGenerator.login_base(project, type_way)
         try:
             # 如果请求头字段有数据，请求头合并
             if add_header not in [None, '']:
