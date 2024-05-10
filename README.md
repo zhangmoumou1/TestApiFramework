@@ -8,7 +8,7 @@
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
 
-🎉 框架详细帮助文档：http://zhangyanc.club/subject/5/
+🎉 框架详细帮助文档：http://zhangyanc.club/subject/4/
 
 ## 技术栈
 
@@ -529,4 +529,4 @@ jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字�
 -->
 如有问题QQ：1392364470，觉得不错的Star一下哦!<br>
 
-🎉 框架详细帮助文档：http://zhangyanc.club/subject/5/
+🎉 框架详细帮助文档：http://zhangyanc.club/subject/4/
