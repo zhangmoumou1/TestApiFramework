@@ -7,7 +7,7 @@
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
 
-☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
+☕ 框架帮助文档：http://zhangyanc.club/subject/5/
 
 ## 技术栈
 
