@@ -1,5 +1,4 @@
 # 接口自动化测试框架
-- [x] ☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
 
 <p>
     <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python.svg"></a>
@@ -7,6 +6,8 @@
     <a href="https://im.qq.com/index/"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
+
+☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
 
 ## 技术栈
 
