@@ -38,7 +38,7 @@
 </tr>
 </table>
 
-# 一、目录结构
+## 目录结构
 
     |--TestApiFramework       # 主目录
        ├─ api               # 示例接口目录
@@ -66,9 +66,9 @@
        ├─ run.bat           # windows系统执行用例脚本
        └─ run.sh            # linux系统执行用例脚本
 
-# 二、框架流程图
+## 框架流程图
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/process.png)
-# 三、示例接口
+## 示例接口
 本框架提供示例接口，运行api/flaskApi.py文件，打开`http://127.0.0.1:5000/apidocs/`
 即可查看swagger接口文档
 
