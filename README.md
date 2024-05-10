@@ -71,6 +71,7 @@
 # 三、示例接口
 本框架提供示例接口，运行api/flaskApi.py文件，打开`http://127.0.0.1:5000/apidocs/`
 即可查看swagger接口文档
+
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/api.jpg)
 <!-- 这部分内容将不会在Markdown中显示
 # 三、环境配置
