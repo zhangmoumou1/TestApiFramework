@@ -1,5 +1,5 @@
 # 接口自动化测试框架
-
+- [x] ☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
 
 <p>
     <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python.svg"></a>
@@ -36,36 +36,33 @@
 </tr>
 </table>
 
-## 注意 
-> info.yaml、mysql.yaml、redis.yaml、用例表.project_name字段的项目命名必须保持一致对应
----
 # 一、目录结构
 
-    |--TestApiFramework       # 主目录
-       ├─ api               # 示例接口目录
-         └─ flaskApi.py     # flask示例接口
-       ├─ core              # 封装调用主入口，requests调用、解析等核心方法
-       ├─ util              # 常用工具，操作mysql、redis、log、yaml等操作
-       ├─ conf              # 配置文件读取
-         └─ config.ini      # 项目配置
-         └─ info.yaml       # 接口相关配置 如接口前缀地址
-         └─ mysql.yaml      # mysql连接信息
-         └─ redis.yaml      # redis连接信息
-       ├─ pic               # readme.md所需的图片
-       ├─ testcase          # 测试用例
-         └─ caseBlog        # 对应项目目录
-           └─ test_blog.py
-       ├─ report            # 测试结果
-         └─ allure_report   # allure报告文件
-         └─ logs            # 日志
-       ├─ load_config.py	# 配置写入
-       ├─ read_config.py	# 配置读取
-       ├─ conftest.py	    # 用例的设置和清理
-       ├─ pytest.ini	    # pytest配置
-       ├─ requirements.txt  # 记录所有依赖包及版本号
-       ├─ README.md
-       ├─ run.bat           # windows系统执行用例脚本
-       └─ run.sh            # linux系统执行用例脚本
+|--TestApiFramework       # 主目录
+   ├─ api               # 示例接口目录
+     └─ flaskApi.py     # flask示例接口
+   ├─ core              # 封装调用主入口，requests调用、解析等核心方法
+   ├─ util              # 常用工具，操作mysql、redis、log、yaml等操作
+   ├─ conf              # 配置文件读取
+     └─ config.ini      # 项目配置
+     └─ info.yaml       # 接口相关配置 如接口前缀地址
+     └─ mysql.yaml      # mysql连接信息
+     └─ redis.yaml      # redis连接信息
+   ├─ pic               # readme.md所需的图片
+   ├─ testcase          # 测试用例
+     └─ caseBlog        # 对应项目目录
+       └─ test_blog.py
+   ├─ report            # 测试结果
+     └─ allure_report   # allure报告文件
+     └─ logs            # 日志
+   ├─ load_config.py	# 配置写入
+   ├─ read_config.py	# 配置读取
+   ├─ conftest.py	    # 用例的设置和清理
+   ├─ pytest.ini	    # pytest配置
+   ├─ requirements.txt  # 记录所有依赖包及版本号
+   ├─ README.md
+   ├─ run.bat           # windows系统执行用例脚本
+   └─ run.sh            # linux系统执行用例脚本
 # 二、框架流程图
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/process.png)
 # 三、环境配置
@@ -121,45 +118,45 @@ https://www.jianshu.com/p/5d1ce588e18c
 ### 2、创建用例表
 此处创建两张表，分别为`base_login`（存放登录接口）和`article`（用例表，可自行命名），以下是创建sql：
 
-    CREATE TABLE `base_login` (
-      `case_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
-      `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
-      `project_name` varchar(65) DEFAULT 'BlogProject' COMMENT '项目名称，如BlogProject',
-      `case_module` varchar(255) DEFAULT NULL COMMENT '需求名称或者模块名称',
-      `case_name` varchar(255) DEFAULT NULL COMMENT '用例名称',
-      `api_way` varchar(32) DEFAULT 'POST' COMMENT '请求方式(GET、POST、PUT、DELETE)',
-      `headers` longtext COMMENT '请求头',
-      `case_url` varchar(255) DEFAULT NULL COMMENT '接口地址，只需要写路由后的地址',
-      `case_param` longtext COMMENT '接口传参',
-      `assert` longtext COMMENT '断言内容',
-      `prepose_control` longtext COMMENT '前置全局变量，接口请求前需要做的前置动作',
-      `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
-      `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
-      `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
-      `created_time` date DEFAULT NULL COMMENT '创建时间',
-      `text` longtext COMMENT '备注',
-      `is_deleted` int DEFAULT '0'
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='登录用例';
+CREATE TABLE `base_login` (
+  `case_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
+  `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
+  `project_name` varchar(65) DEFAULT 'BlogProject' COMMENT '项目名称，如BlogProject',
+  `case_module` varchar(255) DEFAULT NULL COMMENT '需求名称或者模块名称',
+  `case_name` varchar(255) DEFAULT NULL COMMENT '用例名称',
+  `api_way` varchar(32) DEFAULT 'POST' COMMENT '请求方式(GET、POST、PUT、DELETE)',
+  `headers` longtext COMMENT '请求头',
+  `case_url` varchar(255) DEFAULT NULL COMMENT '接口地址，只需要写路由后的地址',
+  `case_param` longtext COMMENT '接口传参',
+  `assert` longtext COMMENT '断言内容',
+  `prepose_control` longtext COMMENT '前置全局变量，接口请求前需要做的前置动作',
+  `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
+  `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
+  `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
+  `created_time` date DEFAULT NULL COMMENT '创建时间',
+  `text` longtext COMMENT '备注',
+  `is_deleted` int DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='登录用例';
 
-    CREATE TABLE `article` (
-      `case_id` varchar(50) DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
-      `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
-      `project_name` varchar(65) DEFAULT 'BlogProject' COMMENT '项目名称，如BlogProject',
-      `case_module` varchar(255) DEFAULT NULL COMMENT '需求名称或者模块名称',
-      `case_name` varchar(255) DEFAULT NULL COMMENT '用例名称',
-      `api_way` varchar(32) DEFAULT 'POST' COMMENT '请求方式(GET、POST、PUT、DELETE)',
-      `headers` longtext COMMENT '请求头',
-      `case_url` varchar(255) DEFAULT NULL COMMENT '接口地址，只需要写路由后的地址',
-      `case_param` longtext COMMENT '接口传参',
-      `assert` longtext COMMENT '断言内容',
-      `prepose_control` longtext COMMENT '前置全局变量，接口请求前需要做的前置动作',
-      `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
-      `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
-      `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
-      `created_time` date DEFAULT NULL COMMENT '创建时间',
-      `text` longtext COMMENT '备注',
-      `is_deleted` int DEFAULT '0'
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章接口用例';
+CREATE TABLE `article` (
+  `case_id` varchar(50) DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
+  `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
+  `project_name` varchar(65) DEFAULT 'BlogProject' COMMENT '项目名称，如BlogProject',
+  `case_module` varchar(255) DEFAULT NULL COMMENT '需求名称或者模块名称',
+  `case_name` varchar(255) DEFAULT NULL COMMENT '用例名称',
+  `api_way` varchar(32) DEFAULT 'POST' COMMENT '请求方式(GET、POST、PUT、DELETE)',
+  `headers` longtext COMMENT '请求头',
+  `case_url` varchar(255) DEFAULT NULL COMMENT '接口地址，只需要写路由后的地址',
+  `case_param` longtext COMMENT '接口传参',
+  `assert` longtext COMMENT '断言内容',
+  `prepose_control` longtext COMMENT '前置全局变量，接口请求前需要做的前置动作',
+  `postpose_control` longtext COMMENT '后置全局变量，接口请求后需要的数据，如断言所需的变量提取，之后接口所需的参数',
+  `relevance_page` varchar(255) DEFAULT NULL COMMENT '对应的功能页面地址，便于其他人查找',
+  `developer` varchar(255) DEFAULT NULL COMMENT '接口开发者',
+  `created_time` date DEFAULT NULL COMMENT '创建时间',
+  `text` longtext COMMENT '备注',
+  `is_deleted` int DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章接口用例';
 
 ### 3、录入用例数据
 #### 1）录入登录接口数据
@@ -167,28 +164,28 @@ https://www.jianshu.com/p/5d1ce588e18c
 并在`postpose_control`字段写入存储token的语法。后续只需将存储的对应key名，填入其他接口的`headers`字段内即可。
 以下为示例sql：
     
-    INSERT INTO base_login
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.0', '张某某', 'BlogProject', '登录', '账密登录成功', 'POST', NULL, '/api/login', '{"username":"test","password":"123456"}', '包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&', NULL, 'BlogProject_token=jsonpath_rela.data', NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO base_login
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.0', '张某某', 'BlogProject', '登录', '账密登录成功', 'POST', NULL, '/api/login', '{"username":"test","password":"123456"}', '包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&', NULL, 'BlogProject_token=jsonpath_rela.data', NULL, '开发者', '2023-03-10', NULL, 0);
 
 #### 2）录入接口用例数据
 注意headers字段需要添加对应项目token的变量key名，保证登录。以下为示例sql：
     
-    INSERT INTO article
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.0', '张某某', 'BlogProject', '文章管理', '文章列表', 'GET', 'token=##BlogProject_token##', '/api/articleList', NULL, '相等&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
-    INSERT INTO article
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.1', '张某某', 'BlogProject', '文章管理', '新增文章', 'POST', 'token=##BlogProject_token##', '/api/addArticle', '{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', '存在&&添加新文章成功&&；自定义相等&&账密登录成功==##zyc_case_name.case_name##&&', 'sleep2', 'mysql_1.test_cases.zyc_case_name=select case_name from base_login where case_id=''zmm-1.0''', NULL, '开发者', '2023-03-10', NULL, 0);
-    INSERT INTO article
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.2', '张某某', 'BlogProject', '文章管理', '查看新增的文章', 'GET', 'token=##BlogProject_token##', '/api/article/3', NULL, '包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
-    INSERT INTO article
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', '不相等&&{"code":"200","message":"##zyc_case_name.case_name##","success":true}&&', 'redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token', NULL, NULL, '开发者', '2023-03-10', NULL, 0);
-    INSERT INTO article
-    (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
-    VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, '包含&&"message": "删除文章成功！"&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO article
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.0', '张某某', 'BlogProject', '文章管理', '文章列表', 'GET', 'token=##BlogProject_token##', '/api/articleList', NULL, '相等&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO article
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.1', '张某某', 'BlogProject', '文章管理', '新增文章', 'POST', 'token=##BlogProject_token##', '/api/addArticle', '{"id":3, "title":"芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', '存在&&添加新文章成功&&；自定义相等&&账密登录成功==##zyc_case_name.case_name##&&', 'sleep2', 'mysql_1.test_cases.zyc_case_name=select case_name from base_login where case_id=''zmm-1.0''', NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO article
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.2', '张某某', 'BlogProject', '文章管理', '查看新增的文章', 'GET', 'token=##BlogProject_token##', '/api/article/3', NULL, '包含&&{"code":"200","data":{"content":"洛阳亲友如相问，一片冰心在玉壶。","id":3,"title":"芙蓉楼送辛渐"},"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO article
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的文章', 'PUT', 'token=##BlogProject_token##', '/api/updateArticle/3', '{"title":"新-芙蓉楼送辛渐", "content":"洛阳亲友如相问，一片冰心在玉壶。"}', '不相等&&{"code":"200","message":"##zyc_case_name.case_name##","success":true}&&', 'redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token', NULL, NULL, '开发者', '2023-03-10', NULL, 0);
+INSERT INTO article
+(case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
+VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, '包含&&"message": "删除文章成功！"&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
 
 
 ### 5、编写用例代码
@@ -197,38 +194,38 @@ https://www.jianshu.com/p/5d1ce588e18c
 
 🎉 注意：`后续用例只需要复制此代码，修改下类/方法名/parameterization_data传参即可`
     
-    from app.core.methods import *
-    
-    @allure.epic("测试用例")
-    @allure.feature("博客项目")
-    @pytest.mark.skipif(env in ['RELEASE'], reason='线上环境不执行')
-    class TestExample():
+from app.core.methods import *
 
-        @login_decorator
-        def setup_class(self):
-            Log().debug('----------------------【测试用例开始执行】----------------------')
-    
-        @allure.story("文章管理")
-        @allure.title('{title}')
-        @pytest.mark.parametrize('case_id, title, table_name', MysqlConstructor.parameterization_data('article', 'zmm-1.0#zmm-1.4'))
-        def test_example(self, case_id, title, table_name):
-            Genetator.global_generator(table_name=table_name, case_id=case_id)
-    
-        def teardown_class(self):
-            Log().debug('-----------------------【测试用例执行完毕】-----------------------\n')
+@allure.epic("测试用例")
+@allure.feature("博客项目")
+@pytest.mark.skipif(env in ['RELEASE'], reason='线上环境不执行')
+class TestExample():
+
+    @login_decorator
+    def setup_class(self):
+        Log().debug('----------------------【测试用例开始执行】----------------------')
+
+    @allure.story("文章管理")
+    @allure.title('{title}')
+    @pytest.mark.parametrize('case_id, title, table_name', MysqlConstructor.parameterization_data('article', 'zmm-1.0#zmm-1.4'))
+    def test_example(self, case_id, title, table_name):
+        Genetator.global_generator(table_name=table_name, case_id=case_id)
+
+    def teardown_class(self):
+        Log().debug('-----------------------【测试用例执行完毕】-----------------------\n')
 
 🎉 parameterization_data()内的用例id详细写法说明如下
 
-    调用单条用例写法
-    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0')
+调用单条用例写法
+MysqlConstructor.parameterization_data('article', 'back-zmm-1.0')
 
-    调用多条用例写法
-    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2')
-    此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2共3条用例
+调用多条用例写法
+MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2')
+此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2共3条用例
 
-    调用分离的多条用例写法
-    MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2,back-zmm-1.5#back-zmm-1.7')
-    此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2、back-zmm-1.5、back-zmm-1.6、back-zmm-1.7共6条用例
+调用分离的多条用例写法
+MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2,back-zmm-1.5#back-zmm-1.7')
+此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2、back-zmm-1.5、back-zmm-1.6、back-zmm-1.7共6条用例
 
 # 六、运行用例
 ## windows系统运行
@@ -287,55 +284,59 @@ https://github.com/allure-framework/allure2/releases，下载zip文件并解压
 | 字符串             | zmm_id | zhang00  |
 | 字典              | zmm_id | {'aa': 'zhang00'}  |
 | 数组              | zmm_id | [{'aa': 'zhang00'}, {'bb': 'zhang11'}] |
-    当value值数据类型为字符串时，写法：##zmm_id##
 
-    当value值数据类型为字典时，写法：##zmm_id.aa##
+```txt
+当value值数据类型为字符串时，写法：##zmm_id##
 
-    当value值数据类型为数组时，写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
+当value值数据类型为字典时，写法：##zmm_id.aa##
 
+当value值数据类型为数组时，写法：##zmm_id.1.aa## 或 ##zmm_id.2.bb##
+```
 ## 2、case_url字段
 双`##`内为变量将从redis取出替换，示例如下
 
 `/transbiz_2c/user/getFsUserIdByUserId.run?userId=##zmm_userId##`  
 ### 1）从用例redis获取变量值
-    双##写法，具体写法前面已介绍，不再具体概述
-
+```txt
+双##写法，具体写法前面已介绍，不再具体概述
+```
 ### 2）特殊变量值
 可插入任意位置
+```txt
+时间格式变量：
+    当接口传参需要依赖当前时间时，可以直接使用以下写法
+    {{秒截止+2m}} ---秒截止表示精确到秒，2m表示当前时间加2分钟，如2021-04-12 15:36:44
+    {{秒截止-2m}} ---秒截止表示精确到秒，2m表示当前时间减2分钟
+    {{秒截止+2h}} ---秒截止表示精确到秒，2h表示当前时间加2小时
+    {{秒截止+2d}} ---秒截止表示精确到秒，2d表示当前时间加2天
+    {{秒截止+2M}} ---秒截止表示精确到秒，2M表示当前时间加2个月
+    {{秒截止+2Y}} ---秒截止表示精确到秒，2Y表示当前时间加2年
+    {{分截止+2m}} ---秒截止表示精确到分，2m表示当前时间加2分钟，如2021-04-12 15:36
+    ........
+    {{日截止+2d}} ---秒截止表示精确到天，2d表示当前时间加2天，如2021-04-12
+    ........
+    {{月截止-2M}} ---秒截止表示精确到月，2M表示当前时间减2个月，如2021-04
+    ........
+    {{年截止-2Y}} ---秒截止表示精确到年，2Y表示当前时间减2年，如2019
+    ........
 
-    时间格式变量：
-        当接口传参需要依赖当前时间时，可以直接使用以下写法
-        {{秒截止+2m}} ---秒截止表示精确到秒，2m表示当前时间加2分钟，如2021-04-12 15:36:44
-        {{秒截止-2m}} ---秒截止表示精确到秒，2m表示当前时间减2分钟
-        {{秒截止+2h}} ---秒截止表示精确到秒，2h表示当前时间加2小时
-        {{秒截止+2d}} ---秒截止表示精确到秒，2d表示当前时间加2天
-        {{秒截止+2M}} ---秒截止表示精确到秒，2M表示当前时间加2个月
-        {{秒截止+2Y}} ---秒截止表示精确到秒，2Y表示当前时间加2年
-        {{分截止+2m}} ---秒截止表示精确到分，2m表示当前时间加2分钟，如2021-04-12 15:36
-        ........
-        {{日截止+2d}} ---秒截止表示精确到天，2d表示当前时间加2天，如2021-04-12
-        ........
-        {{月截止-2M}} ---秒截止表示精确到月，2M表示当前时间减2个月，如2021-04
-        ........
-        {{年截止-2Y}} ---秒截止表示精确到年，2Y表示当前时间减2年，如2019
-        ........
+随机手机号：
+    当传参中需要随机手机号的，可以使用以下写法   {{mobile}}，如想插入redis全局变量可写成{{zmm_xxx.mobile}}
 
-    随机手机号：
-        当传参中需要随机手机号的，可以使用以下写法   {{mobile}}，如想插入redis全局变量可写成{{zmm_xxx.mobile}}
-    
-    指定长度随机数：
-        当需要传5位随机数，可以使用以下写法 {{number5}}，如想插入redis全局变量可写成{{zmm_xxx.number5}}
-    
-    指定范围随机数：
-        当需要传指定数字区间的随机数，可以使用以下写法  {{number12-88}}
+指定长度随机数：
+    当需要传5位随机数，可以使用以下写法 {{number5}}，如想插入redis全局变量可写成{{zmm_xxx.number5}}
 
+指定范围随机数：
+    当需要传指定数字区间的随机数，可以使用以下写法  {{number12-88}}
+```
 ## 3、case_param字段
 双`##`内为变量将从redis取出替换，示例如下
 
 `{"userId": ##zmm_userId##,"agreementSource": 20}`  
 ### 1）从用例redis获取变量值
-    具体写法前面已介绍，不再具体概述
-
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ## 4、prepose_control字段
 接口请求前的前置操作，可以执行操作业务数据库、操作业务redis、调用存量用例、存储自定义变量数据、强制等待特殊变量值，多个使用中文分号`；`隔开，示例如下
 
@@ -346,48 +347,53 @@ mysql_1.db_name.zmm_id=select id from user_basic where code = 'xxx'；
 redis.0.zmm_id=hash.select.name.key；
 custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`  
 ### 1）调用存量用例
-    写法：apiCase.表名=用例id（调用单条用例）
-    示例：apiCase.base_login=zmm-1.1
-    调用base_login表内，case_id为zmm-1.1的用例
-    
-    写法：apiCase.表名=用例id#用例id（调用多条用例）
-    示例：apiCase.base_login=zmm-1.1#zmm-1.3
-    调用base_login表内，case_id为zmm-1.1、zmm-1.2、zmm-1.3的用例
+```txt
+写法：apiCase.表名=用例id（调用单条用例）
+示例：apiCase.base_login=zmm-1.1
+调用base_login表内，case_id为zmm-1.1的用例
 
+写法：apiCase.表名=用例id#用例id（调用多条用例）
+示例：apiCase.base_login=zmm-1.1#zmm-1.3
+调用base_login表内，case_id为zmm-1.1、zmm-1.2、zmm-1.3的用例
+```
 ### 2）操作业务mysql
-    写法：mysql_库索引.库名.redis的key命名=sql语句（查询操作）
-    示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='12345'
-    库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
-    执行sql后查询到id值，命名zmm_id为key，存储至redis中
+```txt
+写法：mysql_库索引.库名.redis的key命名=sql语句（查询操作）
+示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='12345'
+库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
+执行sql后查询到id值，命名zmm_id为key，存储至redis中
 
-    写法：mysql_库索引.库名.redis的key命名=sql语句（插入、更新、删除操作）
-    示例：mysql_1.user_basic.zmm_id=update user_basic set user_name='测试' where user_id='12345'
-    库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
-    执行插入、更新、删除操作不同于查询操作，不会存储变量值
+写法：mysql_库索引.库名.redis的key命名=sql语句（插入、更新、删除操作）
+示例：mysql_1.user_basic.zmm_id=update user_basic set user_name='测试' where user_id='12345'
+库索引取自mysql.yaml的business_db数字后缀，因为会存在多个数据库不同的连接信息。
+执行插入、更新、删除操作不同于查询操作，不会存储变量值
 
-    写法：mysql_库索引.库名.redis的key命名=sql语句（存在####）
-    示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='##user_id##'
-    此写法新增了从redis获取变量值，然后再去直接mysql查询操作，执行sql后查询到id值，命名zmm_id为key，存储至redis中
-
+写法：mysql_库索引.库名.redis的key命名=sql语句（存在####）
+示例：mysql_1.user_basic.zmm_id=select id from user_basic where user_id='##user_id##'
+此写法新增了从redis获取变量值，然后再去直接mysql查询操作，执行sql后查询到id值，命名zmm_id为key，存储至redis中
+```
 ### 3）操作业务redis
 redis命令为查询操作时，将会把结果存入全局变量，提供后续使用；<br>
 redis具体命令请自行在网上借鉴学习
-
-    示例：redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token
-    语法：redis.库索引(默认16个库).存入用例redis的key名=redis语法
-
+```txt
+示例：redis.1.zyc_business_token=hmget qa_TEST_interface_params BlogProject_token
+语法：redis.库索引(默认16个库).存入用例redis的key名=redis语法
+```
 ### 4）强制等待操作
-    写法：sleep5
-    强制等待5秒
-
+```txt
+写法：sleep5
+强制等待5秒
+```
 ### 5）存储自定义变量数据
-    写法：custom.redis的key命名=自定义值
-    custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91
-    向redis存储key为zmm_token，value为da173228-29b3-40c0-b9b0-04b364756c91的数据
-
+```txt
+写法：custom.redis的key命名=自定义值
+custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91
+向redis存储key为zmm_token，value为da173228-29b3-40c0-b9b0-04b364756c91的数据
+```
 ### 6）特殊变量值
-    
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ## 5、assert字段
 实际值和期望值断言语法，支持多个断言使用中文分号`；`隔开，支持双`##`变量值，示例如下
 
@@ -396,60 +402,73 @@ redis具体命令请自行在网上借鉴学习
 ### 接口响应断言
 注意：接口响应断言的相等和不相等类型，期望值格式必须使用json格式，其他断言类型无要求
 #### 1）相等
-    写法：相等&&{'cardNo':'202305271262994896'}&&    ---不校验字段顺序和字段字母大小写
-    &&内的期望值和响应实际值全部一致时，断言成功；有不一致的地方，则断言失败
+```txt
+写法：相等&&{'cardNo':'202305271262994896'}&&    ---不校验字段顺序和字段字母大小写
+&&内的期望值和响应实际值全部一致时，断言成功；有不一致的地方，则断言失败
 
-    写法：相等(排序生效;类型生效)&&{'cardNo':'202305271262994896'}&&    ---校验字段顺序和字段字母大小写
-    &&内的期望值和响应实际值全部一致时，断言成功；有不一致的地方，则断言失败
-
+写法：相等(排序生效;类型生效)&&{'cardNo':'202305271262994896'}&&    ---校验字段顺序和字段字母大小写
+&&内的期望值和响应实际值全部一致时，断言成功；有不一致的地方，则断言失败
+```
 #### 2）不相等
-    写法：相等&&{'cardNo':'202305271262994896'}&&    ---不校验字段顺序和字段字母大小写
-    &&内的期望值和响应实际值全部一致时，断言失败；有不一致的地方，则断言成功
+```txt
+写法：相等&&{'cardNo':'202305271262994896'}&&    ---不校验字段顺序和字段字母大小写
+&&内的期望值和响应实际值全部一致时，断言失败；有不一致的地方，则断言成功
 
-    写法：不相等(排序生效;类型生效)&&{'cardNo':'202305271262994896'}&&    ---校验字段顺序和字段字母大小写
-    &&内的期望值和响应实际值全部一致时，断言失败；有不一致的地方，则断言成功
-
+写法：不相等(排序生效;类型生效)&&{'cardNo':'202305271262994896'}&&    ---校验字段顺序和字段字母大小写
+&&内的期望值和响应实际值全部一致时，断言失败；有不一致的地方，则断言成功
+```
 #### 3）包含校验
-    写法：包含&&{'cardNo':'202305271262994896'}&&
-    响应实际值完全包含&&内的期望值时，断言成功；有不包含的地方，则断言失败
-
+```txt
+写法：包含&&{'cardNo':'202305271262994896'}&&
+响应实际值完全包含&&内的期望值时，断言成功；有不包含的地方，则断言失败
+```
 #### 4）不包含校验
-    写法：不包含&&{'cardNo':'202305271262994896'}&&
-    响应实际值完全包含&&内的期望值时，断言失败；有不包含的地方，则断言成功
-
+```txt
+写法：不包含&&{'cardNo':'202305271262994896'}&&
+响应实际值完全包含&&内的期望值时，断言失败；有不包含的地方，则断言成功
+```
 #### 5）存在校验
-    写法：存在&&{'cardNo':'202305271262994896'}&&
-    &&内的期望值在响应实际值内存在时，断言成功；不存在，则断言失败
-
+```txt
+写法：存在&&{'cardNo':'202305271262994896'}&&
+&&内的期望值在响应实际值内存在时，断言成功；不存在，则断言失败
+```
 #### 6）不存在校验
-    写法：不存在&&{'cardNo':'202305271262994896'}&&
-    &&内的期望值在响应实际值内存在时，断言失败；不存在，则断言成功
-
+```txt
+写法：不存在&&{'cardNo':'202305271262994896'}&&
+&&内的期望值在响应实际值内存在时，断言失败；不存在，则断言成功
+```
 ### 自定义断言
 自定义断言的实际值由自己提供，从业务mysql/业务redis/接口响应/自命名都可以作为实际值
 #### 1）相等
-    写法：自定义相等&&实际值==期望值&&
-    &&内的期望值和实际值全部一致时，断言成功；有不一致的地方，则断言失败
-
+```txt
+写法：自定义相等&&实际值==期望值&&
+&&内的期望值和实际值全部一致时，断言成功；有不一致的地方，则断言失败
+```
 #### 2）不相等
-    写法：自定义不相等&&实际值==期望值&&
-    &&内的期望值和实际值全部一致时，断言失败；有不一致的地方，则断言成功
-
+```txt
+写法：自定义不相等&&实际值==期望值&&
+&&内的期望值和实际值全部一致时，断言失败；有不一致的地方，则断言成功
+```
 #### 3）包含校验
-    写法：自定义包含&&实际值==期望值&&
-    实际值完全包含&&内的期望值时，断言成功；有不包含的地方，则断言失败
-
+```txt
+写法：自定义包含&&实际值==期望值&&
+实际值完全包含&&内的期望值时，断言成功；有不包含的地方，则断言失败
+```
 #### 4）不包含校验
-    写法：自定义不包含&&实际值==期望值&&
-    实际值完全包含&&内的期望值时，断言失败；有不包含的地方，则断言成功
-
+```txt
+写法：自定义不包含&&实际值==期望值&&
+实际值完全包含&&内的期望值时，断言失败；有不包含的地方，则断言成功
+```
 #### 5）存在校验
-    写法：自定义存在&&实际值==期望值&&
-    &&内的期望值在实际值内存在时，断言成功；不存在，则断言失败
-
+```txt
+写法：自定义存在&&实际值==期望值&&
+&&内的期望值在实际值内存在时，断言成功；不存在，则断言失败
+```
 #### 6）不存在校验
-    写法：自定义不存在&&实际值==期望值&&
-    &&内的期望值在实际值内存在时，断言失败；不存在，则断言成功
+```txt
+写法：自定义不存在&&实际值==期望值&&
+&&内的期望值在实际值内存在时，断言失败；不存在，则断言成功
+```
 ## 6、postpose_control字段
 接口请求后的前置操作，可以执行存储接口响应值、调用其他用例、操作业务mysql、操作业务redis、调用存量用例、存储自定义变量数据、强制等待、特殊变量值，多个使用中文分号`；`隔开，示例如下
 
@@ -460,38 +479,46 @@ mysql_1.db_name.zmm_id=select id from user_basic where code = 'xxx'；
 redis.0.zmm_id=hash.select.name.key；
 custom.zmm_token=da173228-29b3-40c0-b9b0-04b364756c91；`
 ### 1）存储接口响应值
-    写法：redis的key命名=jsonpath_rela.响应中的字段名
-    示例：zmm_id=jsonpath_rela.id
-    jsonpath_rela表示使用相对路径查找接口响应中字段名为id的值，命名zmm_id为key，存储至redis中
+```txt
+写法：redis的key命名=jsonpath_rela.响应中的字段名
+示例：zmm_id=jsonpath_rela.id
+jsonpath_rela表示使用相对路径查找接口响应中字段名为id的值，命名zmm_id为key，存储至redis中
 
-    写法：redis的key命名=jsonpath_rela.响应中的字段名.索引
-    示例：zmm_id=jsonpath_rela.id.2
-    jsonpath_rela表示使用相对路径查找接口响应中字段名为id的值，当查找到多个值仅获取第2个值，命名zmm_id为key，存储至redis中
-    
-    写法：redis的key命名=jsonpath_abs.响应中的字段名
-    示例：zmm_id=jsonpath_abs.data.0.id
-    jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字段值，命名zmm_id为key，存储至redis中
+写法：redis的key命名=jsonpath_rela.响应中的字段名.索引
+示例：zmm_id=jsonpath_rela.id.2
+jsonpath_rela表示使用相对路径查找接口响应中字段名为id的值，当查找到多个值仅获取第2个值，命名zmm_id为key，存储至redis中
+
+写法：redis的key命名=jsonpath_abs.响应中的字段名
+示例：zmm_id=jsonpath_abs.data.0.id
+jsonpath_abs表示使用绝对路径data.0.id逐层查找接口响应中的字段值，命名zmm_id为key，存储至redis中
+```
 ### 2）调用存量用例
-    
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ### 3）操作业务mysql
-    
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ### 4）操作业务redis
-
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ### 5）强制等待操作
-    
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ### 6）存储自定义变量数据
-    
-    具体写法前面已介绍，不再具体概述
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ### 7）特殊变量值
-
-    具体写法前面已介绍，不再具体概述
-
+```txt
+具体写法前面已介绍，不再具体概述
+```
 ## 7、is_deleted字段
-    代表是否删除。为0时，调用此用例会执行；为1时，调用此用例不会执行
-
+```txt
+代表是否删除。为0时，调用此用例会执行；为1时，调用此用例不会执行
+```
 如有问题QQ：1392364470，觉得不错的Star一下哦!<br>
 🎉 更多干货可看个人博客：http://www.zhangyanc.club/
