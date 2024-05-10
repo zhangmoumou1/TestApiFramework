@@ -68,7 +68,13 @@
 
 # 二、框架流程图
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/process.png)
+# 三、示例接口
+运行api/flaskApi.py文件启动flask服务，此示例接口用于后续演示调试，打开`http://127.0.0.1:5000/apidocs/`
+可查看接口文档
 
+注：接口前缀使用`http://127.0.0.1:5000`，可在当前页面或者使用接口工具验证接口是否正常
+
+![img.png](http://cdn.zhangyanc.club/cdn/readme/api.jpg)
 <!-- 这部分内容将不会在Markdown中显示
 # 三、环境配置
 安装好mysql和redis后，请启动对应服务保证能连接成功
