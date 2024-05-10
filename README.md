@@ -1,5 +1,6 @@
 # 接口自动化测试框架
 
+
 <p>
     <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python.svg"></a>
     <a href="https://github.com/zhangmoumou1/TestApiFramework"><img src="http://cdn.zhangyanc.club/cdn/readme/platform_system.svg"></a>
@@ -39,31 +40,32 @@
 
 # 一、目录结构
 
-|--TestApiFramework       # 主目录
-   ├─ api               # 示例接口目录
-     └─ flaskApi.py     # flask示例接口
-   ├─ core              # 封装调用主入口，requests调用、解析等核心方法
-   ├─ util              # 常用工具，操作mysql、redis、log、yaml等操作
-   ├─ conf              # 配置文件读取
-     └─ config.ini      # 项目配置
-     └─ info.yaml       # 接口相关配置 如接口前缀地址
-     └─ mysql.yaml      # mysql连接信息
-     └─ redis.yaml      # redis连接信息
-   ├─ pic               # readme.md所需的图片
-   ├─ testcase          # 测试用例
-     └─ caseBlog        # 对应项目目录
-       └─ test_blog.py
-   ├─ report            # 测试结果
-     └─ allure_report   # allure报告文件
-     └─ logs            # 日志
-   ├─ load_config.py	# 配置写入
-   ├─ read_config.py	# 配置读取
-   ├─ conftest.py	    # 用例的设置和清理
-   ├─ pytest.ini	    # pytest配置
-   ├─ requirements.txt  # 记录所有依赖包及版本号
-   ├─ README.md
-   ├─ run.bat           # windows系统执行用例脚本
-   └─ run.sh            # linux系统执行用例脚本
+    |--TestApiFramework       # 主目录
+       ├─ api               # 示例接口目录
+         └─ flaskApi.py     # flask示例接口
+       ├─ core              # 封装调用主入口，requests调用、解析等核心方法
+       ├─ util              # 常用工具，操作mysql、redis、log、yaml等操作
+       ├─ conf              # 配置文件读取
+         └─ config.ini      # 项目配置
+         └─ info.yaml       # 接口相关配置 如接口前缀地址
+         └─ mysql.yaml      # mysql连接信息
+         └─ redis.yaml      # redis连接信息
+       ├─ pic               # readme.md所需的图片
+       ├─ testcase          # 测试用例
+         └─ caseBlog        # 对应项目目录
+           └─ test_blog.py
+       ├─ report            # 测试结果
+         └─ allure_report   # allure报告文件
+         └─ logs            # 日志
+       ├─ load_config.py	# 配置写入
+       ├─ read_config.py	# 配置读取
+       ├─ conftest.py	    # 用例的设置和清理
+       ├─ pytest.ini	    # pytest配置
+       ├─ requirements.txt  # 记录所有依赖包及版本号
+       ├─ README.md
+       ├─ run.bat           # windows系统执行用例脚本
+       └─ run.sh            # linux系统执行用例脚本
+
 # 二、框架流程图
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/process.png)
 # 三、环境配置
@@ -74,20 +76,21 @@ https://www.jianshu.com/p/5d1ce588e18c
 
 ## 2、安装redis
 请自行查找安装教程，并设置秘钥
-
-    # 打开解压后的Redis目录，找到redis.windows.conf文件，使用文本编辑器打开，并找到包含“requirepass”的行，去掉行前的注释符号#，并设置你的密钥
-    requirepass yourpassword
-    # 启动Redis服务
-    redis-server.exe redis.windows.conf
-
+```txt
+# 打开解压后的Redis目录，找到redis.windows.conf文件，使用文本编辑器打开，并找到包含“requirepass”的行，去掉行前的注释符号#，并设置你的密钥
+requirepass yourpassword
+# 启动Redis服务
+redis-server.exe redis.windows.conf
+```
 ## 3、配置python环境
 安装python后，使用如下命令安装依赖包`pip install -r requirements.txt`
-    
-    dingtalkchatbot：需要离线安装，离线包下载地址：https://github.com/zhuifengshen/DingtalkChatbot，
-    下载后进到所在目录执行命令python3 setup.py install
-    
-    PyYAML：当执行用例报错module 'yaml' has no attribute 'FullLoader' ---先卸载pyyaml，
-    再使用命令pip install --ignore-installed PyYAML重新安装
+```txt
+dingtalkchatbot：需要离线安装，离线包下载地址：https://github.com/zhuifengshen/DingtalkChatbot，
+下载后进到所在目录执行命令python3 setup.py install
+
+PyYAML：当执行用例报错module 'yaml' has no attribute 'FullLoader' ---先卸载pyyaml，
+再使用命令pip install --ignore-installed PyYAML重新安装
+```
 # 四、部署示例接口
 运行api/flaskApi.py文件启动flask服务，此示例接口用于后续演示调试，打开`http://127.0.0.1:5000/apidocs/`
 可查看接口文档
@@ -98,27 +101,26 @@ https://www.jianshu.com/p/5d1ce588e18c
 # 五、如何编写用例
 ### 1、录入配置
 #### 1）config.ini
-    根据自身需求配置信息
+根据自身需求配置信息
 
 #### 2）conf/info.yaml
-
-    根据自身需求，可配置多个项目多个环境的接口前缀地址
+根据自身需求，可配置多个项目多个环境的接口前缀地址
 
 #### 3）conf/mysql.yaml
-
-    根据自身需求设置连接信息
-    用例mysql：建议所有环境使用一个数据库，命名CaseDb不用修改
-    业务mysql：可配置多个项目多个环境的mysql连接信息，项目名根据自身需求进行修改
-
+```txt
+根据自身需求设置连接信息
+用例mysql：建议所有环境使用一个数据库，命名CaseDb不用修改
+业务mysql：可配置多个项目多个环境的mysql连接信息，项目名根据自身需求进行修改
+```
 #### 4）conf/redis.yaml
-
-    根据自身需求设置连接信息
-    用例redis：建议所有环境使用一个数据库，命名CaseDb不用修改
-    业务redis：可配置多个项目多个环境的redis连接信息，项目名根据自身需求进行修改
-
+```txt
+根据自身需求设置连接信息
+用例redis：建议所有环境使用一个数据库，命名CaseDb不用修改
+业务redis：可配置多个项目多个环境的redis连接信息，项目名根据自身需求进行修改
+```
 ### 2、创建用例表
 此处创建两张表，分别为`base_login`（存放登录接口）和`article`（用例表，可自行命名），以下是创建sql：
-
+```txt
 CREATE TABLE `base_login` (
   `case_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
   `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
@@ -138,7 +140,8 @@ CREATE TABLE `base_login` (
   `text` longtext COMMENT '备注',
   `is_deleted` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='登录用例';
-
+```
+```txt
 CREATE TABLE `article` (
   `case_id` varchar(50) DEFAULT NULL COMMENT '用例id，建议用自己名字命名便于区分，如zmm-1.0',
   `creator` varchar(255) DEFAULT NULL COMMENT '创建人',
@@ -158,20 +161,20 @@ CREATE TABLE `article` (
   `text` longtext COMMENT '备注',
   `is_deleted` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='文章接口用例';
-
+```
 ### 3、录入用例数据
 #### 1）录入登录接口数据
 调用业务接口要维持登录状态，如果是从登录接口获取token，需要在用例mysql的`base_login`表配置登录接口，
 并在`postpose_control`字段写入存储token的语法。后续只需将存储的对应key名，填入其他接口的`headers`字段内即可。
 以下为示例sql：
-    
+```txt    
 INSERT INTO base_login
 (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
 VALUES('zmm-1.0', '张某某', 'BlogProject', '登录', '账密登录成功', 'POST', NULL, '/api/login', '{"username":"test","password":"123456"}', '包含&&{"code":"200","data":"9779dd9e-aa3d-435f-a431-e699a67fe616","message":"登录成功！","success":true}&&', NULL, 'BlogProject_token=jsonpath_rela.data', NULL, '开发者', '2023-03-10', NULL, 0);
-
+```
 #### 2）录入接口用例数据
 注意headers字段需要添加对应项目token的变量key名，保证登录。以下为示例sql：
-    
+```txt  
 INSERT INTO article
 (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
 VALUES('zmm-1.0', '张某某', 'BlogProject', '文章管理', '文章列表', 'GET', 'token=##BlogProject_token##', '/api/articleList', NULL, '相等&&{"code":"200","data":[{"content":"长风破浪会有时，直挂云帆济沧海。","id":1,"title":"行路难"},{"content":"沉舟侧畔千帆过，病树前头万木春。","id":2,"title":"酬乐天扬州初逢席上见赠"}],"success":true}&&', NULL, NULL, NULL, '开发者', '2023-03-10', NULL, 0);
@@ -187,14 +190,14 @@ VALUES('zmm-1.3', '张某某', 'BlogProject', '文章管理', '编辑新增的�
 INSERT INTO article
 (case_id, creator, project_name, case_module, case_name, api_way, headers, case_url, case_param, assert, prepose_control, postpose_control, relevance_page, developer, created_time, `text`, is_deleted)
 VALUES('zmm-1.4', '张某某', 'BlogProject', '文章管理', '删除新增的文章', 'DELETE', 'token=##BlogProject_token##', '/api/deleteArticle/3', NULL, '包含&&"message": "删除文章成功！"&&', NULL, 'apiCase.article=zmm-1.0', NULL, '开发者', '2023-03-10', NULL, 0);
-
+```
 
 ### 5、编写用例代码
 在testcase目录下，创建编写用例代码，修改类和方法名避免冲突，再填写用例数据所在的表和用例id（调用多条用例，可写为zmm-1.0#zmm-1.3），
 如下创建./testcase/caseBlog/case_blog.py。
 
 🎉 注意：`后续用例只需要复制此代码，修改下类/方法名/parameterization_data传参即可`
-    
+```python
 from app.core.methods import *
 
 @allure.epic("测试用例")
@@ -214,9 +217,9 @@ class TestExample():
 
     def teardown_class(self):
         Log().debug('-----------------------【测试用例执行完毕】-----------------------\n')
-
+```
 🎉 parameterization_data()内的用例id详细写法说明如下
-
+```txt 
 调用单条用例写法
 MysqlConstructor.parameterization_data('article', 'back-zmm-1.0')
 
@@ -227,7 +230,7 @@ MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2')
 调用分离的多条用例写法
 MysqlConstructor.parameterization_data('article', 'back-zmm-1.0#back-zmm-1.2,back-zmm-1.5#back-zmm-1.7')
 此写法会调用back-zmm-1.0、back-zmm-1.1、back-zmm-1.2、back-zmm-1.5、back-zmm-1.6、back-zmm-1.7共6条用例
-
+```
 # 六、运行用例
 ## windows系统运行
 ### 1、运行方式1
